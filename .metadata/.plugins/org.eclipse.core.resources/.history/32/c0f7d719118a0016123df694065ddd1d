@@ -85,21 +85,11 @@ int main(void)
 
   //Timer9_Initialize(); //treba zakomentovat ked chcem robit funckiu na sledovanie stavu tlacidla
 
-
-  // Zapnutie vypnutie pomocou ODR
-  GPIOA->ODR |= 0x01 << 5; //zapise jednicku na piaty bit
-  GPIOA->ODR &=~(0x01<<5); //zapise nulu na piaty bit
-
-  // Zapnutie vypnutie pomocou BSRR
-  GPIOA->BSRRL = GPIO_Pin_5;
-  GPIOA->BSRRH = GPIO_Pin_5;
-
   /* Infinite loop */
   while (1)
   {
-	  //Prepinanie pomocou ODR
-	  GPIOA->ODR |= 0x01 << 5; //zapise jednicku na piaty bit
-	  GPIOA->ODR &=~(0x01<<5); //zapise nulu na piaty bit
+	  //GPIOA->BSRRL = GPIO_Pin_5;
+	  //GPIOA->BSRRH = GPIO_Pin_5;
 
 	  //GPIOA->ODR |= 0x01 << 5; //zapise jednicku na piaty bit
 	  //GPIOA->ODR &=~(0x01<<5); //zapise nulu na piaty bit
