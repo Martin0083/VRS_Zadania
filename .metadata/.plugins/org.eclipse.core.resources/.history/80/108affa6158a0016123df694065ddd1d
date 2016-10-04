@@ -98,13 +98,13 @@ int main(void)
 
 
 	  //prepinanie stavu premennej button
-	  //if(GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_13)){
-	  //	button = 0;
-	  //}else{
-	  //	button = 1;
-	  //}
+	  if(GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_13)){
+	  	button = 0;
+	  }else{
+	  	button = 1;
+	  }
 
-	  Sledovanie_tlacidla();
+	  //Sledovanie_tlacidla();
 
 	  //Togle_tlacidla();
 
