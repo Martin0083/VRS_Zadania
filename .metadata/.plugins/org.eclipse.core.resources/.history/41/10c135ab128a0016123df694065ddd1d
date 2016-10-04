@@ -111,9 +111,9 @@ int main(void)
 	  //	button = 1;
 	  //}
 
-	  //Sledovanie_tlacidla();
+	  Sledovanie_tlacidla();
 
-	  Togle_tlacidla();
+	  //Togle_tlacidla();
   }
   return 0;
 }
