@@ -175,7 +175,7 @@ void Togle_tlacidla(void){
 			}
 		}
 
-		if(!(GPIO_ReadOutputDataBit(GPIOA, GPIO_Pin_5))){
+		if(!(GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_13))){
 			GPIO_SetBits(GPIOA, GPIO_Pin_5);
 		}else{
 			GPIO_ResetBits(GPIOA, GPIO_Pin_5);

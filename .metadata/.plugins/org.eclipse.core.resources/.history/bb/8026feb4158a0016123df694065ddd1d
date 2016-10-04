@@ -104,9 +104,9 @@ int main(void)
 	  //	button = 1;
 	  //}
 
-	  //Sledovanie_tlacidla();
+	  Sledovanie_tlacidla();
 
-	  Togle_tlacidla();
+	  //Togle_tlacidla();
 
   }
   return 0;
@@ -170,12 +170,12 @@ void Sledovanie_tlacidla(void){
 void Togle_tlacidla(void){
 	if(!GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_13)){
 		for(int i = 0 ; i<=10 ; i++){
-			if((GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_13)) == 1){
+			if((GPIO_ReadInputData(GPIOC)) == 1){
 				i=0;
 			}
 		}
 
-		if(!(GPIO_ReadOutputDataBit(GPIOA, GPIO_Pin_5))){
+		if(!(GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_13))){
 			GPIO_SetBits(GPIOA, GPIO_Pin_5);
 		}else{
 			GPIO_ResetBits(GPIOA, GPIO_Pin_5);
