@@ -87,8 +87,8 @@ int main(void)
 
 
   // Zapnutie vypnutie led
-  //GPIO_SetBits(GPIOA, GPIO_Pin_5); //zapise jednicku
-  //GPIO_ResetBits(GPIOA, GPIO_Pin_5); //zapise nulu
+  GPIO_SetBits(GPIOA, GPIO_Pin_5); //zapise jednicku
+  GPIO_ResetBits(GPIOA, GPIO_Pin_5); //zapise nulu
 
 
 
@@ -97,12 +97,12 @@ int main(void)
   {
 
 
-	  //prepinanie stavu premennej button
-	  if(GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_13)){
-	  	button = 0;
-	  }else{
-	  	button = 1;
-	  }
+	  //ked tlacidlo nie je stlacene IDR je 1, ak je stlacene IDR je 0
+	  //if(GPIO_ReadInputData(GPIOC)){
+	  //	button = 0;
+	  //}else{
+	  //	button = 1;
+	  //}
 
 	  //Sledovanie_tlacidla();
 

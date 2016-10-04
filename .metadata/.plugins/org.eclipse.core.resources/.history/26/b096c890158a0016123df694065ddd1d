@@ -97,7 +97,7 @@ int main(void)
   {
 
 
-	  //prepinanie stavu premennej button
+	  //ked tlacidlo nie je stlacene IDR je 1, ak je stlacene IDR je 0
 	  if(GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_13)){
 	  	button = 0;
 	  }else{
