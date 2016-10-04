@@ -83,7 +83,7 @@ int main(void)
 
   GPIO_CONFIG();
 
-  Timer9_Initialize(); //treba zakomentovat ked chcem robit funckiu na sledovanie stavu tlacidla
+  //Timer9_Initialize(); //treba zakomentovat ked chcem robit funckiu na sledovanie stavu tlacidla
 
 
   // Zapnutie vypnutie pomocou ODR
@@ -105,11 +105,11 @@ int main(void)
 	  //GPIOA->ODR &=~(0x01<<5); //zapise nulu na piaty bit
 
 	  //ked tlacidlo nie je stlacene IDR je 1, ak je stlacene IDR je 0
-	  //if(GPIOC->IDR & 1<<13){
-	  //	button = 0;
-	  //}else{
-	  //	button = 1;
-	  //}
+	  if(GPIOC->IDR & 1<<13){
+	  	button = 0;
+	  }else{
+	  	button = 1;
+	  }
 
 	  //Sledovanie_tlacidla();
 
