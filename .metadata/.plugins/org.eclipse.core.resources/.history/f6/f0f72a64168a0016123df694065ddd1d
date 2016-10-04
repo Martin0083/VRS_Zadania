@@ -83,7 +83,7 @@ int main(void)
 
   GPIO_CONFIG();
 
-  Timer9_Initialize(); //treba zakomentovat ked chcem robit funckiu na sledovanie stavu tlacidla
+  //Timer9_Initialize(); //treba zakomentovat ked chcem robit funckiu na sledovanie stavu tlacidla
 
 
   // Zapnutie vypnutie led
@@ -106,7 +106,7 @@ int main(void)
 
 	  //Sledovanie_tlacidla();
 
-	  //Togle_tlacidla();
+	  Togle_tlacidla();
 
   }
   return 0;
