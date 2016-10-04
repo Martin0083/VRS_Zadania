@@ -30,13 +30,22 @@ SOFTWARE.
 #include "stm32f4xx.h"
 #include "stm32f4xx_rcc.h"
 #include "stm32f4xx_gpio.h"
+#include "stm32f4xx_tim.h"
+//#include "stdbool.h"
 /* Private macro */
 /* Private variables */
 /* Private function prototypes */
 /* Private functions */
+TIM_TimeBaseInitTypeDef TIM_3_TimeBaseStructure;
+GPIO_InitTypeDef GPIO_STRUCT_A;
+GPIO_InitTypeDef GPIO_STRUCT_C;
 
-GPIO_InitTypeDef GPIO_STRUCT;
+void Timer3_Initialize(void);
+void GPIO_CONFIG(void);
+void Sledovanie_tlacidla(void);
+void Togle_tlacidla(void);
 
+int button = 0;
 /**
 **===========================================================================
 **
@@ -46,8 +55,8 @@ GPIO_InitTypeDef GPIO_STRUCT;
 */
 int main(void)
 {
-  int i = 0;
 
+  SystemInit();
   /**
   *  IMPORTANT NOTE!
   *  The symbol VECT_TAB_SRAM needs to be defined when building the project
@@ -60,18 +69,115 @@ int main(void)
 
   /* TODO - Add your application code here */
 
-  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);
+  GPIO_CONFIG();
 
-  GPIO_STRUCT.GPIO_Pin  = GPIO_Pin_13;
-  GPIO_STRUCT.GPIO_Mode = GPIO_Mode_OUT;
-  GPIO_STRUCT.GPIO_OType = GPIO_OType_PP;
-  GPIO_STRUCT.GPIO_PuPd = GPIO_PuPd_UP;
-  GPIO_STRUCT.GPIO_Speed = GPIO_Speed_50MHz;
+  //Timer3_Initialize(); //treba zakomentovat ked chcem robit funckiu na sledovanie stavu tlacidla
 
   /* Infinite loop */
   while (1)
   {
-	  GPIOB->BSRRL = GPIO_Pin_13;
-	  GPIOB->BSRRH = GPIO_Pin_13;
+	  //GPIOA->BSRRL = GPIO_Pin_5;
+	  //GPIOA->BSRRH = GPIO_Pin_5;
+
+	  //GPIOA->ODR |= 0x01 << 5; //zapise jednicku na piaty bit
+	  //GPIOA->ODR &=~(0x01<<5); //zapise nulu na piaty bit
+
+	  //ked tlacidlo nie je stlacene IDR je 1, ak je stlacene IDR je 0
+//	  if(GPIOC->IDR){
+//		  button = 0;
+//	  }else{
+//		  button = 1;
+//	  }
+
+	  //Sledovanie_tlacidla();
+
+	  Togle_tlacidla();
+
+
   }
+}
+
+void Timer3_Initialize(void){
+
+	  /* TIM3 clock enable */
+	  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
+	  /* Time base configuration */
+	  TIM_3_TimeBaseStructure.TIM_Period = 1000000;
+	  TIM_3_TimeBaseStructure.TIM_Prescaler = 788;
+	  TIM_3_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
+	  TIM_3_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+	  TIM_TimeBaseInit(TIM3, &TIM_3_TimeBaseStructure);
+	  TIM_Cmd(TIM3, ENABLE);
+	  TIM_ITConfig(TIM3, TIM_IT_Update, ENABLE);
+
+	  NVIC_InitTypeDef nvicStructure;
+	  nvicStructure.NVIC_IRQChannel = TIM3_IRQn;
+	  nvicStructure.NVIC_IRQChannelPreemptionPriority = 0;
+	  nvicStructure.NVIC_IRQChannelSubPriority = 1;
+	  nvicStructure.NVIC_IRQChannelCmd = ENABLE;
+	  NVIC_Init(&nvicStructure);
+
+}
+
+void GPIO_CONFIG(void){
+
+	  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
+//	  GPIO_STRUCT_A.GPIO_Pin  = GPIO_Pin_5;
+//	  GPIO_STRUCT_A.GPIO_Mode = GPIO_Mode_OUT;
+//	  GPIO_STRUCT_A.GPIO_OType = GPIO_OType_PP;
+//	  GPIO_STRUCT_A.GPIO_PuPd = GPIO_PuPd_UP;
+//	  GPIO_STRUCT_A.GPIO_Speed = GPIO_Speed_50MHz;
+//	  GPIO_Init(GPIOA, &GPIO_STRUCT_A);
+
+
+
+	  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
+//	  GPIO_STRUCT_C.GPIO_Pin  = GPIO_Pin_13;
+//	  GPIO_STRUCT_C.GPIO_Mode = GPIO_Mode_IN;
+//	  GPIO_STRUCT_C.GPIO_OType = GPIO_OType_PP;
+//	  GPIO_STRUCT_A.GPIO_PuPd = GPIO_PuPd_NOPULL;
+//	  GPIO_Init(GPIOC, &GPIO_STRUCT_C);
+
+	  GPIOA->MODER |= 0x01 << 10;
+	  GPIOA->OTYPER &= ~(0x01 << 5);
+	  GPIOA->PUPDR |= 0x01 << 10;
+	  GPIOA->OSPEEDR |= 0x03 << 10;
+
+	  GPIOC->MODER &= ~(0x03 << 26);
+	  GPIOC->OTYPER &= ~(0x01 << 13);
+	  GPIOC->PUPDR &= ~(0x03 << 26);
+	  GPIOC->OSPEEDR &= ~(0x03 << 26);
+
+	  GPIOA->BSRRH = GPIO_Pin_5;//zhasnutie ledky nazaciatku
+
+}
+
+void Sledovanie_tlacidla(void){
+		  if(GPIOC->IDR << 13){
+			  GPIOA->BSRRH = GPIO_Pin_5;
+		  }else{
+			  GPIOA->BSRRL = GPIO_Pin_5;
+		  }
+}
+
+void Togle_tlacidla(void){
+	if(!(GPIOC->IDR << 13)){
+		for(int i = 0 ; i<=10 ; i++){
+			if((GPIOC->IDR << 13) == 1){
+				i=0;
+			}
+		}
+
+		if(!(GPIOA->ODR << 5)){
+			GPIOA->ODR |= 0x01 << 5;
+		}else{
+			GPIOA->ODR &= ~(0x01 << 5);
+		}
+
+		for(int i = 0 ; i<=10 ; i++){
+			if((GPIOC->IDR << 13) == 0){
+				i=0;
+			}
+		}
+	}
 }

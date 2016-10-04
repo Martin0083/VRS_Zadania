@@ -29,7 +29,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_it.h"
-
+int svieti = 0;
 /** @addtogroup Template_Project
   * @{
   */
@@ -155,9 +155,17 @@ void SysTick_Handler(void)
   * @param  None
   * @retval None
   */
-/*void PPP_IRQHandler(void)
+void TIM3_IRQHandler(void)
 {
-}*/
+	if (TIM_GetITStatus(TIM3, TIM_IT_Update) != RESET){
+		TIM_ClearITPendingBit(TIM3, TIM_IT_Update);
+		if(!(GPIOA->ODR << 5)){
+     		GPIOA->ODR |= 0x01 << 5;
+		}else{
+	    	GPIOA->ODR &= ~(0x01 << 5);
+		}
+	}
+}
 
 /**
   * @}
