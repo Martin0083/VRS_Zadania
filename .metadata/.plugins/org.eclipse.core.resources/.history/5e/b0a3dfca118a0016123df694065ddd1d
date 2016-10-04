@@ -87,29 +87,29 @@ int main(void)
 
 
   // Zapnutie vypnutie pomocou ODR
-  //GPIOA->ODR |= 0x01 << 5; //zapise jednicku na piaty bit
-  //GPIOA->ODR &=~(0x01<<5); //zapise nulu na piaty bit
+  GPIOA->ODR |= 0x01 << 5; //zapise jednicku na piaty bit
+  GPIOA->ODR &=~(0x01<<5); //zapise nulu na piaty bit
 
   // Zapnutie vypnutie pomocou BSRR
-  //GPIOA->BSRRL = GPIO_Pin_5;
-  //GPIOA->BSRRH = GPIO_Pin_5;
+  GPIOA->BSRRL = GPIO_Pin_5;
+  GPIOA->BSRRH = GPIO_Pin_5;
 
   /* Infinite loop */
   while (1)
   {
 	  //Prepinanie pomocou ODR
-	  //GPIOA->ODR |= 0x01 << 5; //zapise jednicku na piaty bit
-	  //GPIOA->ODR &=~(0x01<<5); //zapise nulu na piaty bit
+	  GPIOA->ODR |= 0x01 << 5; //zapise jednicku na piaty bit
+	  GPIOA->ODR &=~(0x01<<5); //zapise nulu na piaty bit
 
 	  //GPIOA->ODR |= 0x01 << 5; //zapise jednicku na piaty bit
 	  //GPIOA->ODR &=~(0x01<<5); //zapise nulu na piaty bit
 
 	  //ked tlacidlo nie je stlacene IDR je 1, ak je stlacene IDR je 0
-	  if(GPIOC->IDR & 1<<13){
-	  	button = 0;
-	  }else{
-	  	button = 1;
-	  }
+	  //if(GPIOC->IDR){
+	  //	button = 0;
+	  //}else{
+	  //	button = 1;
+	  //}
 
 	  //Sledovanie_tlacidla();
 
@@ -165,10 +165,10 @@ void GPIO_CONFIG(void){
 	  GPIOA->PUPDR |= 0x01 << 10;
 	  GPIOA->OSPEEDR |= 0x03 << 10;
 
-	  GPIOC->MODER &= ~(0x03 << 26);
-	  GPIOC->OTYPER &= ~(0x01 << 13);
-	  GPIOC->PUPDR &= ~(0x03 << 26);
-	  GPIOC->OSPEEDR |= 0x03 << 26;
+	  //GPIOC->MODER &= ~(0x03 << 26);
+	  //GPIOC->OTYPER &= ~(0x01 << 13);
+	  //GPIOC->PUPDR &= ~(0x03 << 26);
+	  //GPIOC->OSPEEDR |= 0x03 << 26;
 
 	  GPIOA->BSRRH = GPIO_Pin_5;//zhasnutie ledky nazaciatku
 
