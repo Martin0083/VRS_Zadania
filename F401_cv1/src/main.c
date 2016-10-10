@@ -79,8 +79,8 @@ int main(void)
 	  //GPIOA->BSRRL = GPIO_Pin_5;
 	  //GPIOA->BSRRH = GPIO_Pin_5;
 
-	  //GPIOA->ODR |= 0x01 << 5; //zapise jednicku na piaty bit
-	  //GPIOA->ODR &=~(0x01<<5); //zapise nulu na piaty bit
+	  GPIOA->ODR |= 0x01 << 5; //zapise jednicku na piaty bit
+	  GPIOA->ODR &=~(0x01<<5); //zapise nulu na piaty bit
 
 	  //ked tlacidlo nie je stlacene IDR je 1, ak je stlacene IDR je 0
 //	  if(GPIOC->IDR){
