@@ -31,16 +31,23 @@ SOFTWARE.
 #include "stm32l1xx.h"
 #include <main.h>
 
-
+static __IO uint32_t TimingDelay;
+uint8_t BlinkSpeed = 0;
+RCC_ClocksTypeDef RCC_Clocks;
 
 int main(void)
 {
   uint16_t AD_Value = 0;
+  int perioda = 0;
 
-  SystemInit();
+  /* SysTick end of count event each 1ms */
+  RCC_GetClocksFreq(&RCC_Clocks);
+  SysTick_Config(RCC_Clocks.HCLK_Frequency / 1000);
+
+  //SystemInit();
 
   GPIO_CONFIG();
-  Timer9_Initialize();
+  //Timer9_Initialize();
   adc_init();
 
 
@@ -49,11 +56,41 @@ int main(void)
   while (1)
   {
 	  AD_Value = ADC_Conversion();
-	  Timer9_Period_Set(AD_Value);
+
+	  if((AD_Value >= 3600) && (AD_Value <= 3700)){
+		  perioda = 250/2;
+	  }else if((AD_Value >= 3400) && (AD_Value <= 3500)){
+		  perioda = 250;
+	  }else if((AD_Value >= 2800) && (AD_Value <= 3000)){
+		  perioda = 250 + 250/2;
+	  }
+	  else if((AD_Value >= 1900) && (AD_Value <= 2100)){
+	  		  perioda = 250*2;
+	  }else{
+		  perioda = 50;
+	  }
+
+	  GPIO_ToggleBits(GPIOA, GPIO_Pin_5);
+	  Delay(perioda);
 
   }
   return 0;
 
+}
+
+void Delay(__IO uint32_t nTime)
+{
+  TimingDelay = nTime;
+
+  while(TimingDelay != 0);
+}
+
+void TimingDelay_Decrement(void)
+{
+  if (TimingDelay != 0x00)
+  {
+    TimingDelay--;
+  }
 }
 
 #ifdef  USE_FULL_ASSERT

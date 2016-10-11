@@ -12,3 +12,5 @@ void Timer9_Initialize(void);
 void adc_init(void);
 uint16_t ADC_Conversion(void);
 void Timer9_Period_Set(uint16_t Period);
+void TimingDelay_Decrement(void);
+void Delay(__IO uint32_t nTime);

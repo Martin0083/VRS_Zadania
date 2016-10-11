@@ -18,8 +18,8 @@ void Timer9_Initialize(void){
 	TIM_TimeBaseInitTypeDef TIM_9_TimeBaseStructure;
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM9, ENABLE);
 
-	TIM_9_TimeBaseStructure.TIM_Period = 320-1;
-	TIM_9_TimeBaseStructure.TIM_Prescaler = 42000;//84 000 000Hz/42 000 = 2000Hz
+	TIM_9_TimeBaseStructure.TIM_Period = 1;
+	TIM_9_TimeBaseStructure.TIM_Prescaler = 31000;
 	TIM_9_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
 	TIM_9_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
 	TIM_TimeBaseInit(TIM9, &TIM_9_TimeBaseStructure);
@@ -36,15 +36,20 @@ void Timer9_Initialize(void){
 }
 
 void Timer9_Period_Set(uint16_t Period){
+
 	TIM_TimeBaseInitTypeDef TIM_9_TimeBaseStructure;
 
+	TIM_Cmd(TIM9, DISABLE);
+	TIM_ITConfig(TIM9, TIM_IT_Update, DISABLE);
+
 	TIM_9_TimeBaseStructure.TIM_Period = Period-1;
-	//TIM_9_TimeBaseStructure.TIM_Prescaler = 42000;//84 000 000Hz/42 000 = 2000Hz
-	//TIM_9_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
-	//TIM_9_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+	TIM_9_TimeBaseStructure.TIM_Prescaler = 32000;
+	TIM_9_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
+	TIM_9_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
 	TIM_TimeBaseInit(TIM9, &TIM_9_TimeBaseStructure);
-	//TIM_Cmd(TIM9, ENABLE);
-	//TIM_ITConfig(TIM9, TIM_IT_Update, ENABLE);
+
+	TIM_Cmd(TIM9, ENABLE);
+	TIM_ITConfig(TIM9, TIM_IT_Update, ENABLE);
 
 }
 
@@ -57,7 +62,7 @@ void adc_init(void){
 	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);//Opravit a upravit
 
 	/* Configure ADCx Channel 2 as analog input */
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2 ; // upravit pin podla potreby
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1 ; // upravit pin podla potreby
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AN;
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL ;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
@@ -83,7 +88,7 @@ void adc_init(void){
 	ADC_Init(ADC1, &ADC_InitStructure);
 
 	/* ADCx regular channel8 configuration */
-	ADC_RegularChannelConfig(ADC1, ADC_Channel_2, 1, ADC_SampleTime_16Cycles);
+	ADC_RegularChannelConfig(ADC1, ADC_Channel_1, 1, ADC_SampleTime_16Cycles);
 
 	/* Enable the ADC */
 	ADC_Cmd(ADC1, ENABLE);
@@ -108,3 +113,5 @@ uint16_t ADC_Conversion(void){
 
 	return AD_value;
 }
+
+

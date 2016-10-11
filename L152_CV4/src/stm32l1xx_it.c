@@ -25,6 +25,7 @@
 #include "stm32l1xx_it.h"
 #include "main.h"
 
+extern uint8_t BlinkSpeed;
 /** @addtogroup Template_Project
   * @{
   */
@@ -135,10 +136,7 @@ void PendSV_Handler(void)
   */
 void SysTick_Handler(void)
 {
-	/*  TimingDelay_Decrement(); */
-#ifdef USE_STM32L_DISCOVERY
-  TimingDelay_Decrement();
-#endif
+	TimingDelay_Decrement();
 }
 
 /******************************************************************************/
@@ -153,17 +151,12 @@ void SysTick_Handler(void)
   * @param  None
   * @retval None
   */
-void TIM9_IRQHandler(void)
-{
-	if (TIM_GetITStatus(TIM9, TIM_IT_Update) != RESET){
-		TIM_ClearITPendingBit(TIM9, TIM_IT_Update);
-		if(!(GPIO_ReadOutputDataBit(GPIOA, GPIO_Pin_5))){
-			GPIO_SetBits(GPIOA, GPIO_Pin_5);
-		}else{
-			GPIO_ResetBits(GPIOA, GPIO_Pin_5);
-		}
-	}
-}
+//void TIM9_IRQHandler(void)
+//{
+//	if (TIM_GetITStatus(TIM9, TIM_IT_Update) != RESET){
+//		delay++;
+//	}
+//}
 
 /**
   * @}
