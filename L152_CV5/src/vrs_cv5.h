@@ -7,8 +7,11 @@
 #include <stm32l1xx_dma.h>
 #include <stdio.h>
 
+uint16_t AD_Value;
+uint8_t Namerane;
+
 void GPIO_CONFIG(void);
 void Nvic_Config(void);
-void ADC_Measure_Transmit(void);
+void ADC_Measure_Transmit(uint16_t AD_Value);
 void ADC_Config(void);
-void OutString(char *s, int size);
+void OutString(void);

@@ -4638,3 +4638,661 @@ Output sent to: L152_CV5.elf.list
 Generate listing file done
 Generate build reports done
 Info: Nothing to build for L152_CV5
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+10:10:30 **** Incremental Build of configuration Debug for project L152_CV5 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\vrs_cv5.o ..\src\vrs_cv5.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\stm32l1xx_it.o ..\src\stm32l1xx_it.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\main.o ..\src\main.c 
+arm-atollic-eabi-gcc Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o src\main.o src\startup_stm32l1xx_hd.o src\stm32l1xx_it.o src\system_stm32l1xx.o src\vrs_cv5.o -o L152_CV5.elf -mthumb -mcpu=cortex-m3 -T..\stm32_flash.ld -Wl,--start-group -lc -lm -Wl,--end-group -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=L152_CV5.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\Tools\arm-atollic-reports.jar sizeinfo list L152_CV5.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   4776	     36	   1056	   5868	   16ec	L152_CV5.elf
+Print size information done
+Generate listing file
+Output sent to: L152_CV5.elf.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+10:13:40 **** Incremental Build of configuration Debug for project L152_CV5 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\main.o ..\src\main.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\stm32l1xx_it.o ..\src\stm32l1xx_it.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\vrs_cv5.o ..\src\vrs_cv5.c 
+arm-atollic-eabi-gcc Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o src\main.o src\startup_stm32l1xx_hd.o src\stm32l1xx_it.o src\system_stm32l1xx.o src\vrs_cv5.o -o L152_CV5.elf -mthumb -mcpu=cortex-m3 -T..\stm32_flash.ld -Wl,--start-group -lc -lm -Wl,--end-group -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=L152_CV5.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\Tools\arm-atollic-reports.jar sizeinfo list L152_CV5.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  20276	   1376	   1116	  22768	   58f0	L152_CV5.elf
+Print size information done
+Generate listing file
+Output sent to: L152_CV5.elf.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+10:20:01 **** Incremental Build of configuration Debug for project L152_CV5 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\main.o ..\src\main.c 
+arm-atollic-eabi-gcc Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o src\main.o src\startup_stm32l1xx_hd.o src\stm32l1xx_it.o src\system_stm32l1xx.o src\vrs_cv5.o -o L152_CV5.elf -mthumb -mcpu=cortex-m3 -T..\stm32_flash.ld -Wl,--start-group -lc -lm -Wl,--end-group -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=L152_CV5.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\Tools\arm-atollic-reports.jar sizeinfo list L152_CV5.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  20276	   1376	   1116	  22768	   58f0	L152_CV5.elf
+Print size information done
+Generate listing file
+Output sent to: L152_CV5.elf.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+10:23:12 **** Incremental Build of configuration Debug for project L152_CV5 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\vrs_cv5.o ..\src\vrs_cv5.c 
+arm-atollic-eabi-gcc Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o src\main.o src\startup_stm32l1xx_hd.o src\stm32l1xx_it.o src\system_stm32l1xx.o src\vrs_cv5.o -o L152_CV5.elf -mthumb -mcpu=cortex-m3 -T..\stm32_flash.ld -Wl,--start-group -lc -lm -Wl,--end-group -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=L152_CV5.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\Tools\arm-atollic-reports.jar sizeinfo list L152_CV5.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  20276	   1376	   1116	  22768	   58f0	L152_CV5.elf
+Print size information done
+Generate listing file
+Output sent to: L152_CV5.elf.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+10:30:30 **** Incremental Build of configuration Debug for project L152_CV5 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\main.o ..\src\main.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\stm32l1xx_it.o ..\src\stm32l1xx_it.c 
+arm-atollic-eabi-gcc Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o src\main.o src\startup_stm32l1xx_hd.o src\stm32l1xx_it.o src\system_stm32l1xx.o src\vrs_cv5.o -o L152_CV5.elf -mthumb -mcpu=cortex-m3 -T..\stm32_flash.ld -Wl,--start-group -lc -lm -Wl,--end-group -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=L152_CV5.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\Tools\arm-atollic-reports.jar sizeinfo list L152_CV5.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  20268	   1376	   1116	  22760	   58e8	L152_CV5.elf
+Print size information done
+Generate listing file
+Output sent to: L152_CV5.elf.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+10:32:44 **** Incremental Build of configuration Debug for project L152_CV5 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\main.o ..\src\main.c 
+arm-atollic-eabi-gcc Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o src\main.o src\startup_stm32l1xx_hd.o src\stm32l1xx_it.o src\system_stm32l1xx.o src\vrs_cv5.o -o L152_CV5.elf -mthumb -mcpu=cortex-m3 -T..\stm32_flash.ld -Wl,--start-group -lc -lm -Wl,--end-group -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=L152_CV5.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\Tools\arm-atollic-reports.jar sizeinfo list L152_CV5.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  20252	   1376	   1116	  22744	   58d8	L152_CV5.elf
+Print size information done
+Generate listing file
+Output sent to: L152_CV5.elf.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+10:34:50 **** Incremental Build of configuration Debug for project L152_CV5 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\stm32l1xx_it.o ..\src\stm32l1xx_it.c 
+arm-atollic-eabi-gcc Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o src\main.o src\startup_stm32l1xx_hd.o src\stm32l1xx_it.o src\system_stm32l1xx.o src\vrs_cv5.o -o L152_CV5.elf -mthumb -mcpu=cortex-m3 -T..\stm32_flash.ld -Wl,--start-group -lc -lm -Wl,--end-group -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=L152_CV5.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\Tools\arm-atollic-reports.jar sizeinfo list L152_CV5.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  20260	   1376	   1116	  22752	   58e0	L152_CV5.elf
+Print size information done
+Generate listing file
+Output sent to: L152_CV5.elf.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+10:35:05 **** Incremental Build of configuration Debug for project L152_CV5 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\main.o ..\src\main.c 
+arm-atollic-eabi-gcc Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o src\main.o src\startup_stm32l1xx_hd.o src\stm32l1xx_it.o src\system_stm32l1xx.o src\vrs_cv5.o -o L152_CV5.elf -mthumb -mcpu=cortex-m3 -T..\stm32_flash.ld -Wl,--start-group -lc -lm -Wl,--end-group -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=L152_CV5.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\Tools\arm-atollic-reports.jar sizeinfo list L152_CV5.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  20244	   1376	   1116	  22736	   58d0	L152_CV5.elf
+Print size information done
+Generate listing file
+Output sent to: L152_CV5.elf.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+10:38:33 **** Incremental Build of configuration Debug for project L152_CV5 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\stm32l1xx_it.o ..\src\stm32l1xx_it.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\main.o ..\src\main.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\vrs_cv5.o ..\src\vrs_cv5.c 
+..\src\vrs_cv5.c: In function 'ADC_Measure_Transmit':
+..\src\vrs_cv5.c:131:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+arm-atollic-eabi-gcc Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o src\main.o src\startup_stm32l1xx_hd.o src\stm32l1xx_it.o src\system_stm32l1xx.o src\vrs_cv5.o -o L152_CV5.elf -mthumb -mcpu=cortex-m3 -T..\stm32_flash.ld -Wl,--start-group -lc -lm -Wl,--end-group -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=L152_CV5.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\Tools\arm-atollic-reports.jar sizeinfo list L152_CV5.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  20116	   1376	   1116	  22608	   5850	L152_CV5.elf
+Print size information done
+Generate listing file
+Output sent to: L152_CV5.elf.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+10:38:56 **** Incremental Build of configuration Debug for project L152_CV5 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\vrs_cv5.o ..\src\vrs_cv5.c 
+..\src\vrs_cv5.c: In function 'ADC_Measure_Transmit':
+..\src\vrs_cv5.c:130:9: warning: return makes integer from pointer without a cast [-Wint-conversion]
+  return AD_text_value;
+         ^
+..\src\vrs_cv5.c:130:9: warning: function returns address of local variable [-Wreturn-local-addr]
+arm-atollic-eabi-gcc Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o src\main.o src\startup_stm32l1xx_hd.o src\stm32l1xx_it.o src\system_stm32l1xx.o src\vrs_cv5.o -o L152_CV5.elf -mthumb -mcpu=cortex-m3 -T..\stm32_flash.ld -Wl,--start-group -lc -lm -Wl,--end-group -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=L152_CV5.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\Tools\arm-atollic-reports.jar sizeinfo list L152_CV5.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  20116	   1376	   1116	  22608	   5850	L152_CV5.elf
+Print size information done
+Generate listing file
+Output sent to: L152_CV5.elf.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+10:42:33 **** Incremental Build of configuration Debug for project L152_CV5 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\vrs_cv5.o ..\src\vrs_cv5.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\stm32l1xx_it.o ..\src\stm32l1xx_it.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\main.o ..\src\main.c 
+arm-atollic-eabi-gcc Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o src\main.o src\startup_stm32l1xx_hd.o src\stm32l1xx_it.o src\system_stm32l1xx.o src\vrs_cv5.o -o L152_CV5.elf -mthumb -mcpu=cortex-m3 -T..\stm32_flash.ld -Wl,--start-group -lc -lm -Wl,--end-group -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=L152_CV5.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\Tools\arm-atollic-reports.jar sizeinfo list L152_CV5.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  20236	   1376	   1124	  22736	   58d0	L152_CV5.elf
+Print size information done
+Generate listing file
+Output sent to: L152_CV5.elf.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+10:51:45 **** Incremental Build of configuration Debug for project L152_CV5 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\vrs_cv5.o ..\src\vrs_cv5.c 
+arm-atollic-eabi-gcc Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o src\main.o src\startup_stm32l1xx_hd.o src\stm32l1xx_it.o src\system_stm32l1xx.o src\vrs_cv5.o -o L152_CV5.elf -mthumb -mcpu=cortex-m3 -T..\stm32_flash.ld -Wl,--start-group -lc -lm -Wl,--end-group -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=L152_CV5.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\Tools\arm-atollic-reports.jar sizeinfo list L152_CV5.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  20236	   1376	   1124	  22736	   58d0	L152_CV5.elf
+Print size information done
+Generate listing file
+Output sent to: L152_CV5.elf.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+10:58:11 **** Incremental Build of configuration Debug for project L152_CV5 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\stm32l1xx_it.o ..\src\stm32l1xx_it.c 
+arm-atollic-eabi-gcc Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o src\main.o src\startup_stm32l1xx_hd.o src\stm32l1xx_it.o src\system_stm32l1xx.o src\vrs_cv5.o -o L152_CV5.elf -mthumb -mcpu=cortex-m3 -T..\stm32_flash.ld -Wl,--start-group -lc -lm -Wl,--end-group -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=L152_CV5.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\Tools\arm-atollic-reports.jar sizeinfo list L152_CV5.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  20276	   1376	   1124	  22776	   58f8	L152_CV5.elf
+Print size information done
+Generate listing file
+Output sent to: L152_CV5.elf.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+11:06:56 **** Incremental Build of configuration Debug for project L152_CV5 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\vrs_cv5.o ..\src\vrs_cv5.c 
+arm-atollic-eabi-gcc Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o src\main.o src\startup_stm32l1xx_hd.o src\stm32l1xx_it.o src\system_stm32l1xx.o src\vrs_cv5.o -o L152_CV5.elf -mthumb -mcpu=cortex-m3 -T..\stm32_flash.ld -Wl,--start-group -lc -lm -Wl,--end-group -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=L152_CV5.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\Tools\arm-atollic-reports.jar sizeinfo list L152_CV5.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  20292	   1376	   1124	  22792	   5908	L152_CV5.elf
+Print size information done
+Generate listing file
+Output sent to: L152_CV5.elf.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+11:10:19 **** Incremental Build of configuration Debug for project L152_CV5 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\vrs_cv5.o ..\src\vrs_cv5.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\main.o ..\src\main.c 
+arm-atollic-eabi-gcc Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o src\main.o src\startup_stm32l1xx_hd.o src\stm32l1xx_it.o src\system_stm32l1xx.o src\vrs_cv5.o -o L152_CV5.elf -mthumb -mcpu=cortex-m3 -T..\stm32_flash.ld -Wl,--start-group -lc -lm -Wl,--end-group -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=L152_CV5.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\Tools\arm-atollic-reports.jar sizeinfo list L152_CV5.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  20284	   1376	   1124	  22784	   5900	L152_CV5.elf
+Print size information done
+Generate listing file
+Output sent to: L152_CV5.elf.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+11:13:49 **** Incremental Build of configuration Debug for project L152_CV5 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\vrs_cv5.o ..\src\vrs_cv5.c 
+arm-atollic-eabi-gcc Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o src\main.o src\startup_stm32l1xx_hd.o src\stm32l1xx_it.o src\system_stm32l1xx.o src\vrs_cv5.o -o L152_CV5.elf -mthumb -mcpu=cortex-m3 -T..\stm32_flash.ld -Wl,--start-group -lc -lm -Wl,--end-group -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=L152_CV5.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\Tools\arm-atollic-reports.jar sizeinfo list L152_CV5.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  20276	   1376	   1124	  22776	   58f8	L152_CV5.elf
+Print size information done
+Generate listing file
+Output sent to: L152_CV5.elf.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+11:16:50 **** Incremental Build of configuration Debug for project L152_CV5 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\main.o ..\src\main.c 
+arm-atollic-eabi-gcc Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o src\main.o src\startup_stm32l1xx_hd.o src\stm32l1xx_it.o src\system_stm32l1xx.o src\vrs_cv5.o -o L152_CV5.elf -mthumb -mcpu=cortex-m3 -T..\stm32_flash.ld -Wl,--start-group -lc -lm -Wl,--end-group -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=L152_CV5.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\Tools\arm-atollic-reports.jar sizeinfo list L152_CV5.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  18876	   1376	   1124	  21376	   5380	L152_CV5.elf
+Print size information done
+Generate listing file
+Output sent to: L152_CV5.elf.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+11:19:44 **** Incremental Build of configuration Debug for project L152_CV5 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\main.o ..\src\main.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\vrs_cv5.o ..\src\vrs_cv5.c 
+..\src\vrs_cv5.c: In function 'GPIO_CONFIG':
+..\src\vrs_cv5.c:8:19: warning: unused variable 'GPIO_ADC_InitStructure' [-Wunused-variable]
+  GPIO_InitTypeDef GPIO_ADC_InitStructure;
+                   ^
+..\src\vrs_cv5.c: In function 'Nvic_Config':
+..\src\vrs_cv5.c:61:19: warning: unused variable 'NVIC_ADC1_InitStructure' [-Wunused-variable]
+  NVIC_InitTypeDef NVIC_ADC1_InitStructure;
+                   ^
+arm-atollic-eabi-gcc Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o src\main.o src\startup_stm32l1xx_hd.o src\stm32l1xx_it.o src\system_stm32l1xx.o src\vrs_cv5.o -o L152_CV5.elf -mthumb -mcpu=cortex-m3 -T..\stm32_flash.ld -Wl,--start-group -lc -lm -Wl,--end-group -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=L152_CV5.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\Tools\arm-atollic-reports.jar sizeinfo list L152_CV5.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  18836	   1376	   1124	  21336	   5358	L152_CV5.elf
+Print size information done
+Generate listing file
+Output sent to: L152_CV5.elf.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+11:21:16 **** Incremental Build of configuration Debug for project L152_CV5 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\vrs_cv5.o ..\src\vrs_cv5.c 
+..\src\vrs_cv5.c: In function 'GPIO_CONFIG':
+..\src\vrs_cv5.c:8:19: warning: unused variable 'GPIO_ADC_InitStructure' [-Wunused-variable]
+  GPIO_InitTypeDef GPIO_ADC_InitStructure;
+                   ^
+..\src\vrs_cv5.c: In function 'Nvic_Config':
+..\src\vrs_cv5.c:61:19: warning: unused variable 'NVIC_ADC1_InitStructure' [-Wunused-variable]
+  NVIC_InitTypeDef NVIC_ADC1_InitStructure;
+                   ^
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\main.o ..\src\main.c 
+arm-atollic-eabi-gcc Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o src\main.o src\startup_stm32l1xx_hd.o src\stm32l1xx_it.o src\system_stm32l1xx.o src\vrs_cv5.o -o L152_CV5.elf -mthumb -mcpu=cortex-m3 -T..\stm32_flash.ld -Wl,--start-group -lc -lm -Wl,--end-group -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=L152_CV5.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\Tools\arm-atollic-reports.jar sizeinfo list L152_CV5.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  18404	   1376	   1124	  20904	   51a8	L152_CV5.elf
+Print size information done
+Generate listing file
+Output sent to: L152_CV5.elf.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+11:24:02 **** Incremental Build of configuration Debug for project L152_CV5 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\main.o ..\src\main.c 
+arm-atollic-eabi-gcc Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o src\main.o src\startup_stm32l1xx_hd.o src\stm32l1xx_it.o src\system_stm32l1xx.o src\vrs_cv5.o -o L152_CV5.elf -mthumb -mcpu=cortex-m3 -T..\stm32_flash.ld -Wl,--start-group -lc -lm -Wl,--end-group -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=L152_CV5.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\Tools\arm-atollic-reports.jar sizeinfo list L152_CV5.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  18668	   1376	   1124	  21168	   52b0	L152_CV5.elf
+Print size information done
+Generate listing file
+Output sent to: L152_CV5.elf.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+11:27:09 **** Incremental Build of configuration Debug for project L152_CV5 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\main.o ..\src\main.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\vrs_cv5.o ..\src\vrs_cv5.c 
+arm-atollic-eabi-gcc Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o src\main.o src\startup_stm32l1xx_hd.o src\stm32l1xx_it.o src\system_stm32l1xx.o src\vrs_cv5.o -o L152_CV5.elf -mthumb -mcpu=cortex-m3 -T..\stm32_flash.ld -Wl,--start-group -lc -lm -Wl,--end-group -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=L152_CV5.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\Tools\arm-atollic-reports.jar sizeinfo list L152_CV5.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  20276	   1376	   1124	  22776	   58f8	L152_CV5.elf
+Print size information done
+Generate listing file
+Output sent to: L152_CV5.elf.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+11:28:27 **** Incremental Build of configuration Debug for project L152_CV5 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\main.o ..\src\main.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\vrs_cv5.o ..\src\vrs_cv5.c 
+..\src\vrs_cv5.c: In function 'Nvic_Config':
+..\src\vrs_cv5.c:61:19: warning: unused variable 'NVIC_ADC1_InitStructure' [-Wunused-variable]
+  NVIC_InitTypeDef NVIC_ADC1_InitStructure;
+                   ^
+arm-atollic-eabi-gcc Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o src\main.o src\startup_stm32l1xx_hd.o src\stm32l1xx_it.o src\system_stm32l1xx.o src\vrs_cv5.o -o L152_CV5.elf -mthumb -mcpu=cortex-m3 -T..\stm32_flash.ld -Wl,--start-group -lc -lm -Wl,--end-group -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=L152_CV5.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\Tools\arm-atollic-reports.jar sizeinfo list L152_CV5.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  18860	   1376	   1124	  21360	   5370	L152_CV5.elf
+Print size information done
+Generate listing file
+Output sent to: L152_CV5.elf.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+11:30:22 **** Incremental Build of configuration Debug for project L152_CV5 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\main.o ..\src\main.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\vrs_cv5.o ..\src\vrs_cv5.c 
+arm-atollic-eabi-gcc Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o src\main.o src\startup_stm32l1xx_hd.o src\stm32l1xx_it.o src\system_stm32l1xx.o src\vrs_cv5.o -o L152_CV5.elf -mthumb -mcpu=cortex-m3 -T..\stm32_flash.ld -Wl,--start-group -lc -lm -Wl,--end-group -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=L152_CV5.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\Tools\arm-atollic-reports.jar sizeinfo list L152_CV5.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  20292	   1376	   1124	  22792	   5908	L152_CV5.elf
+Print size information done
+Generate listing file
+Output sent to: L152_CV5.elf.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+11:34:00 **** Incremental Build of configuration Debug for project L152_CV5 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\vrs_cv5.o ..\src\vrs_cv5.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\main.o ..\src\main.c 
+arm-atollic-eabi-gcc Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o src\main.o src\startup_stm32l1xx_hd.o src\stm32l1xx_it.o src\system_stm32l1xx.o src\vrs_cv5.o -o L152_CV5.elf -mthumb -mcpu=cortex-m3 -T..\stm32_flash.ld -Wl,--start-group -lc -lm -Wl,--end-group -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=L152_CV5.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\Tools\arm-atollic-reports.jar sizeinfo list L152_CV5.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  20292	   1376	   1124	  22792	   5908	L152_CV5.elf
+Print size information done
+Generate listing file
+Output sent to: L152_CV5.elf.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+11:35:52 **** Incremental Build of configuration Debug for project L152_CV5 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\vrs_cv5.o ..\src\vrs_cv5.c 
+arm-atollic-eabi-gcc Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o src\main.o src\startup_stm32l1xx_hd.o src\stm32l1xx_it.o src\system_stm32l1xx.o src\vrs_cv5.o -o L152_CV5.elf -mthumb -mcpu=cortex-m3 -T..\stm32_flash.ld -Wl,--start-group -lc -lm -Wl,--end-group -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=L152_CV5.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\Tools\arm-atollic-reports.jar sizeinfo list L152_CV5.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  20276	   1376	   1124	  22776	   58f8	L152_CV5.elf
+Print size information done
+Generate listing file
+Output sent to: L152_CV5.elf.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+11:39:43 **** Incremental Build of configuration Debug for project L152_CV5 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\stm32l1xx_it.o ..\src\stm32l1xx_it.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\vrs_cv5.o ..\src\vrs_cv5.c 
+arm-atollic-eabi-gcc Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o src\main.o src\startup_stm32l1xx_hd.o src\stm32l1xx_it.o src\system_stm32l1xx.o src\vrs_cv5.o -o L152_CV5.elf -mthumb -mcpu=cortex-m3 -T..\stm32_flash.ld -Wl,--start-group -lc -lm -Wl,--end-group -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=L152_CV5.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\Tools\arm-atollic-reports.jar sizeinfo list L152_CV5.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  20236	   1376	   1124	  22736	   58d0	L152_CV5.elf
+Print size information done
+Generate listing file
+Output sent to: L152_CV5.elf.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+11:58:36 **** Incremental Build of configuration Debug for project L152_CV5 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\vrs_cv5.o ..\src\vrs_cv5.c 
+arm-atollic-eabi-gcc Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o src\main.o src\startup_stm32l1xx_hd.o src\stm32l1xx_it.o src\system_stm32l1xx.o src\vrs_cv5.o -o L152_CV5.elf -mthumb -mcpu=cortex-m3 -T..\stm32_flash.ld -Wl,--start-group -lc -lm -Wl,--end-group -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=L152_CV5.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\Tools\arm-atollic-reports.jar sizeinfo list L152_CV5.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  20236	   1376	   1124	  22736	   58d0	L152_CV5.elf
+Print size information done
+Generate listing file
+Output sent to: L152_CV5.elf.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for L152_CV5
+Info: Nothing to build for F401_cv1
+Info: Nothing to build for F401_cv4_EXTI_TEST
+Info: Nothing to build for L152_CV2
+Info: Nothing to build for L152_CV3
+Info: Nothing to build for L152_CV4
+12:10:04 **** Incremental Build of configuration Debug for project L152_CV5 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\stm32l1xx_it.o ..\src\stm32l1xx_it.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m3 -std=gnu11 -DSTM32L1XX_HD -DUSE_STDPERIPH_DRIVER -I../src -I..\Libraries\STM32L1xx_StdPeriph_Driver\inc -I..\Libraries\CMSIS\Include -I..\Libraries\CMSIS\Device\ST\STM32L1xx\Include -O0 -ffunction-sections -fdata-sections -g -Wall -o src\vrs_cv5.o ..\src\vrs_cv5.c 
+arm-atollic-eabi-gcc Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o src\main.o src\startup_stm32l1xx_hd.o src\stm32l1xx_it.o src\system_stm32l1xx.o src\vrs_cv5.o -o L152_CV5.elf -mthumb -mcpu=cortex-m3 -T..\stm32_flash.ld -Wl,--start-group -lc -lm -Wl,--end-group -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=L152_CV5.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 6.0.0\Tools\arm-atollic-reports.jar sizeinfo list L152_CV5.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  20276	   1376	   1124	  22776	   58f8	L152_CV5.elf
+Print size information done
+Generate listing file
+Output sent to: L152_CV5.elf.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for L152_CV5

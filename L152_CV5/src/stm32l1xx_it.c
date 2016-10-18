@@ -25,6 +25,9 @@
 #include "stm32l1xx_it.h"
 #include <vrs_cv5.h>
 
+extern uint16_t AD_Value;
+extern uint8_t Namerane;
+
 /** @addtogroup Template_Project
   * @{
   */
@@ -153,7 +156,7 @@ void SysTick_Handler(void)
 void ADC1_IRQHandler(void)
 {
 	if(ADC_GetFlagStatus(ADC1, ADC_IT_EOC) == RESET){
-		ADC_Measure_Transmit();
+		AD_Value = ADC1->DR;
 	}
 }
 
@@ -165,8 +168,10 @@ void ADC1_IRQHandler(void)
 void USART1_IRQHandler(void)
 {
 	if(USART_GetFlagStatus(USART1, USART_FLAG_RXNE) == SET){
-
-		USART_ClearFlag(USART1, USART_FLAG_RXNE);
+		if(USART_ReceiveData(USART1)==109){
+			ADC_Measure_Transmit(AD_Value);
+			USART_ClearFlag(USART1, USART_FLAG_RXNE);
+		}
 	}
 
 }

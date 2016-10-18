@@ -1,5 +1,7 @@
 #include <vrs_cv5.h>
 
+char AD_text_value[6];
+
 void GPIO_CONFIG(void){
 
 	GPIO_InitTypeDef GPIO_STRUCT_A;
@@ -32,8 +34,8 @@ void GPIO_CONFIG(void){
 	GPIO_Init(GPIOA, &GPIO_UART1_InitStructure);
 
 	/* Set PA9 PA10 as alternate*/
-	GPIO_PinAFConfig(GPIOA, GPIO_Pin_9, GPIO_AF_USART1);
-	GPIO_PinAFConfig(GPIOA, GPIO_Pin_10, GPIO_AF_USART1);
+	GPIO_PinAFConfig(GPIOA, GPIO_PinSource9, GPIO_AF_USART1);
+	GPIO_PinAFConfig(GPIOA, GPIO_PinSource10, GPIO_AF_USART1);
 
 	/* Configure UART1 */
 	USART1_InitStructure.USART_BaudRate = 9600;
@@ -50,6 +52,8 @@ void GPIO_CONFIG(void){
 	/* Enable USART1 */
 	USART_Cmd(USART1, ENABLE);
 
+	//USART_ClearFlag(USART1, USART_FLAG_TC);
+
 }
 
 void Nvic_Config(void){
@@ -60,13 +64,13 @@ void Nvic_Config(void){
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
 
 	NVIC_ADC1_InitStructure.NVIC_IRQChannel = ADC1_IRQn; //zoznam prerušení nájdete v súbore stm32l1xx.h
-	NVIC_ADC1_InitStructure.NVIC_IRQChannelPreemptionPriority = 14;
+	NVIC_ADC1_InitStructure.NVIC_IRQChannelPreemptionPriority = 15;
 	NVIC_ADC1_InitStructure.NVIC_IRQChannelSubPriority = 0;
 	NVIC_ADC1_InitStructure.NVIC_IRQChannelCmd = ENABLE;
 	NVIC_Init(&NVIC_ADC1_InitStructure);
 
 	NVIC_USART1_InitStructure.NVIC_IRQChannel = USART1_IRQn; //zoznam prerušení nájdete v súbore stm32l1xx.h
-	NVIC_USART1_InitStructure.NVIC_IRQChannelPreemptionPriority = 15;
+	NVIC_USART1_InitStructure.NVIC_IRQChannelPreemptionPriority = 14;
 	NVIC_USART1_InitStructure.NVIC_IRQChannelSubPriority = 0;
 	NVIC_USART1_InitStructure.NVIC_IRQChannelCmd = ENABLE;
 	NVIC_Init(&NVIC_USART1_InitStructure);
@@ -115,26 +119,25 @@ void ADC_Config(void){
 	ADC_SoftwareStartConv(ADC1);
 }
 
-void ADC_Measure_Transmit(void){
-	uint16_t AD_Value = 0;
+void ADC_Measure_Transmit(uint16_t AD_Value){
+
 	double Voltage = 0;
-	char AD_text_value[6];
 
 	for(int i=0; i<=5; i++){
 		AD_text_value[i] = '0';
 	}
 
-	AD_Value = ADC1->DR;
 	Voltage = (AD_Value/4096.0)*3.3;
 
-
-	sprintf(AD_text_value, "%.2f\r\n", Voltage); //Prevod double na char nefunguje
-	OutString(AD_text_value, 6); // odosielanie nejde
+	sprintf(AD_text_value, "%.2f\r\n", Voltage);
+	OutString(); // odosielanie nejde
 }
 
-void OutString(char *s, int size)
+void OutString()
 {
-  for(int index = 0; index < size; index++)
+  char *s=AD_text_value;
+
+  for(int index = 0; index < 6; index++)
   {
     while(USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET){}; // Wait for Empty
     USART_SendData(USART1, *s++); // Send Char
