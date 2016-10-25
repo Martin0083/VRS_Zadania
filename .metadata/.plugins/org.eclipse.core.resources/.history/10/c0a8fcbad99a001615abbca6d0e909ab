@@ -1,0 +1,16 @@
+#include <stm32l1xx_gpio.h>
+#include <stm32l1xx_rcc.h>
+#include <stm32l1xx_adc.h>
+#include <stm32l1xx_usart.h>
+#include <stdbool.h>
+#include <stdio.h>
+
+uint16_t AD_Value;
+bool odoslane;
+char znak;
+char AD_text_value[6];
+
+void USART1_config(void);
+void ADC_Measure(uint16_t AD_Value, char znak);
+void ADC_Config(void);
+void OutString(void);

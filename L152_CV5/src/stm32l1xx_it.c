@@ -25,8 +25,12 @@
 #include "stm32l1xx_it.h"
 #include <vrs_cv5.h>
 
-extern uint16_t AD_Value;
-extern uint8_t Namerane;
+uint16_t AD_Value;
+bool change;
+char AD_text_value[6];
+int i = 0;
+int max = 6;
+
 
 /** @addtogroup Template_Project
   * @{
@@ -168,9 +172,18 @@ void ADC1_IRQHandler(void)
 void USART1_IRQHandler(void)
 {
 	if(USART_GetFlagStatus(USART1, USART_FLAG_RXNE) == SET){
-		if(USART_ReceiveData(USART1)==109){
-			ADC_Measure_Transmit(AD_Value);
-			USART_ClearFlag(USART1, USART_FLAG_RXNE);
+		if(USART_ReceiveData(USART1)== 'm'){
+			change = 1;
+		}
+		USART_ClearFlag(USART1, USART_FLAG_RXNE);
+	}
+	if(USART_GetFlagStatus(USART1, USART_FLAG_TC) == SET){
+		USART_SendData(USART1, AD_text_value[i]);
+		i++;
+		if(i == max){
+			ADC_Measure(AD_Value, change);
+			change = 0;
+			i = 0;
 		}
 	}
 
