@@ -55,58 +55,33 @@ uint8_t krokovanie = 4; //4: 1/16, 3: 1/8, 2: 1/4, 1: 1/2, 0: full step
 */
 int main(void)
 {
+  int i = 0;
   SystemInit();
   initSPI1();
 
   initCS_Pin(); // chip select pin
+
+  SensorPinInit();
 
   initRST_Pin();
   set_RST_Pin();
 
   device_Unselect();
 
-
-
-  /**
-  *  IMPORTANT NOTE!
-  *  See the <system_*.c> file and how/if the SystemInit() function updates 
-  *  SCB->VTOR register. Sometimes the symbol VECT_TAB_SRAM needs to be defined 
-  *  when building the project if code has been located to RAM and interrupts 
-  *  are used. Otherwise the interrupt table located in flash will be used.
-  *  E.g.  SCB->VTOR = 0x20000000;  
-  */
-
-  /**
-  *  At this stage the microcontroller clock setting is already configured,
-  *  this is done through SystemInit() function which is called from startup
-  *  file (startup_stm32l1xx_hd.s) before to branch to application main.
-  *  To reconfigure the default setting of SystemInit() function, refer to
-  *  system_stm32l1xx.c file
-  */
-
-  /* TODO - Add your application code here */
-
-
-  EnableDisable(0);
+  EnableDisable(0);// Disable
   WriteSPI1(0x09, 0b00000101);//adresa,data Tval:5x31.25mA
   WriteSPI1(0x16, 0b10001000 | (krokovanie & 0b111));//Step mode el pos: 7(000), step mode: full(000)
-  EnableDisable(1);
+  EnableDisable(1);// Enable
 
   initDIR1_Pin();
   setDir(1);
   initPWM1_Pin();
   Timer9_Initialize(Speed); // us
 
-  //Timer9_Config(200);
-
-
-
-
   /* Infinite loop */
   while (1)
   {
-
-
+	  i=Sensor();
 
 
 //	  if(!(Steps%100)){

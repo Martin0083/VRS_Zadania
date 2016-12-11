@@ -27,5 +27,7 @@ void Timer9_Disable(void);
 void Timer9_Enable(void);
 void Timer9_Config(int period);
 void EasyStepper(void);
+void SensorPinInit(void);
+uint8_t Sensor(void);
 
 #endif /* COM_H_ */

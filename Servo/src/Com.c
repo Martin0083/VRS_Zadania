@@ -108,6 +108,29 @@ void initDIR1_Pin(void)
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 }
 
+void SensorPinInit(void){
+	GPIO_InitTypeDef GPIO_InitStructure;
+	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOB, ENABLE);
+
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
+	GPIO_Init(GPIOB, &GPIO_InitStructure);
+}
+
+uint8_t Sensor(void){
+
+	return (GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_8) != (uint8_t)Bit_RESET);
+
+//	if(GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_8) != (uint8_t)Bit_RESET){
+//	  return 1; // Snimac preruseny
+//	}else{
+//	  return 0; // Snimac volny
+//	}
+}
+
 void setDir(int dir){
 	if(dir == 1){
 		GPIO_SetBits(GPIOA, GPIO_Pin_8);

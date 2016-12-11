@@ -16,5 +16,4 @@
 #include "stm32l1xx_syscfg.h"
 #include "Com.h"
 
-
 #endif /* MAIN_H_ */
