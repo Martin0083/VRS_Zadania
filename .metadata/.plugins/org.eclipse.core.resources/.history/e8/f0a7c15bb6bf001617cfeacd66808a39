@@ -1,0 +1,36 @@
+/*
+ * Motor.c
+ *
+ *  Created on: 11.12.2016
+ *      Author: Martin
+ */
+
+#include "Motor.h"
+
+void EasyStepper(void){
+
+	GPIO_ToggleBits(GPIOC, GPIO_Pin_7);//PWM Generation
+
+	if(GPIO_ReadOutputDataBit(GPIOA, GPIO_Pin_8)){
+		Steps++;
+	}else{
+		Steps--;
+	}
+
+	if(Steps >= 1600*2){
+		GPIO_ToggleBits(GPIOA, GPIO_Pin_8);
+	}
+	if(Steps == 0){
+		GPIO_ToggleBits(GPIOA, GPIO_Pin_8);
+	}
+
+	if(Steps >= 1600*2 || Steps <= 0){
+		Speed = 200;
+		Timer9_Config(Speed);
+	}
+
+	if(!(Steps%50)){
+		Speed -=1;
+		Timer9_Config(Speed);
+	}
+}
