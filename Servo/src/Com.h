@@ -29,5 +29,10 @@ void Timer9_Config(int period);
 void EasyStepper(void);
 void SensorPinInit(void);
 uint8_t Sensor(void);
+void SetAngle(int Angle);
+void StepsAuto(void);
+void StepsManual(void);
+void Initialize(void);
+int StepSet(uint8_t krokovanie);
 
 #endif /* COM_H_ */

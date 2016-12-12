@@ -11,7 +11,12 @@ TIM_TimeBaseInitTypeDef TIM_9_TimeBaseStructure;
 RCC_ClocksTypeDef RCC_Clocks;
 
 long Steps = 0;
+long SetSteps = 0;
 extern int Speed;
+uint8_t Init = 0;
+uint8_t Auto = 2; //1 = Automat, 0 = Manual, 2 = NOP
+uint8_t Finish;
+extern int MaxSteps;
 
 void initSPI1(void)
 {
@@ -264,31 +269,127 @@ void Timer9_Initialize(int period){
 
 }
 
-void EasyStepper(void){
+// Spustanie funkcii v zavyslosti na zvolenom mode, tato funkcia zbieha v casovaci
+void EasyStepper(){
 
 	GPIO_ToggleBits(GPIOC, GPIO_Pin_7);//PWM Generation
 
-	if(GPIO_ReadOutputDataBit(GPIOA, GPIO_Pin_8)){
-		Steps++;
-	}else{
-		Steps--;
+
+	if(!Init){
+		Initialize();
 	}
 
-	if(Steps >= 1600*2){
-		GPIO_ToggleBits(GPIOA, GPIO_Pin_8);
-	}
-	if(Steps == 0){
-		GPIO_ToggleBits(GPIOA, GPIO_Pin_8);
-	}
-
-	if(Steps >= 1600*2 || Steps <= 0){
-		Speed = 200;
-		Timer9_Config(Speed);
+	if(Auto == 1){
+		if(Init){
+			StepsAuto();
+		}
 	}
 
-	if(!(Steps%50)){
-		Speed -=1;
-		Timer9_Config(Speed);
+	if(Auto == 0){
+		if(Init){
+			StepsManual();
+		}
+	}
+}
+
+// Spusti s alen raz a to na zaciatku, akonahle vrati funkcia Sensor hodnotu 1, motor je na 90° a to je pociatocna poloha
+void Initialize(void){
+	setDir(1); // Set any direction
+	Finish = 0;
+
+	if(Sensor()){
+		Init = 1;
+		Steps = MaxSteps/2; // 90°
+		Finish = 1;
+		Timer9_Disable();
+	}
+}
+
+// Automaticky mode, spusti sa ak je premenna Auto == 1
+void StepsAuto(void){
+	if(Init){
+		if(GPIO_ReadOutputDataBit(GPIOA, GPIO_Pin_8)){
+			Steps--; // ACLKW
+		}else{
+			Steps++; // CLKW
+		}
+
+		if(Steps >= MaxSteps){
+			GPIO_ToggleBits(GPIOA, GPIO_Pin_8);
+		}
+		if(Steps == 0){
+			GPIO_ToggleBits(GPIOA, GPIO_Pin_8);
+		}
+
+		if(Steps >= MaxSteps || Steps <= 0){
+			Speed = 200;
+			Timer9_Config(Speed);
+		}
+
+		if(!(Steps%50)){
+			Speed -=1;
+			Timer9_Config(Speed);
+		}
+	}
+}
+
+// manualny mod, ak jre premenna Auto == 0 tak funkcia otoci motor na zelanu poziciu ktoru nastavila funkcia SetAngle
+void StepsManual(void){
+	if(Init){
+		Finish = 0;
+		if(GPIO_ReadOutputDataBit(GPIOA, GPIO_Pin_8)){
+			Steps--; // ACLKW
+		}else{
+			Steps++; // CLKW
+		}
+
+		if(!(Steps%50)){
+			Speed -=1;
+			Timer9_Config(Speed);
+		}
+
+		if(Steps == SetSteps){
+			Finish = 1;
+			Timer9_Disable();
+		}
+	}
+}
+
+// Funkcia prepocita zelany uhol na pocet krokov a nastavy smer
+void SetAngle(int Angle){
+
+	if(Auto == 0){
+		SetSteps = round((Angle*MaxSteps)/180);
+
+		if(SetSteps > Steps){
+			setDir(0); // CLKW
+			Timer9_Enable();
+			Timer9_Config(200);
+		}
+		if(SetSteps < Steps){
+			setDir(1); // ACLKW
+			Timer9_Enable();
+			Timer9_Config(200);
+		}
+		if(SetSteps == Steps){
+			Timer9_Disable();
+		}
+	}
+}
+
+// Nastavenie Maximalneho poctu krokov v zavyslosti na zvolenom mikrokrokovani, koli vypoctu polohy
+int StepSet(uint8_t krokovanie){
+	int MaxKrokovanie = 0;
+
+	switch(krokovanie){
+		case 4:
+			return MaxKrokovanie = 1600*2;
+		case 3:
+			return MaxKrokovanie = 1600;
+		case 2:
+			return MaxKrokovanie = 1600/2;
+		case 1:
+			return MaxKrokovanie = 1600/4;
 	}
 }
 
@@ -300,11 +401,14 @@ void Timer9_Config(int period){
 }
 
 void Timer9_Disable(void){
+	EnableDisable(0);// Disable
 	TIM_Cmd(TIM9, DISABLE);
 	TIM_ITConfig(TIM9, TIM_IT_Update, DISABLE);
 }
 
 void Timer9_Enable(void){
+	Speed = 200;
+	EnableDisable(1);// Enable
 	TIM_Cmd(TIM9, ENABLE);
 	TIM_ITConfig(TIM9, TIM_IT_Update, ENABLE);
 }

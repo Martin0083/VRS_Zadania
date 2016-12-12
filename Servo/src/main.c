@@ -39,8 +39,12 @@ SOFTWARE.
 int txData;
 int rxData;
 extern long Steps;
+extern uint8_t Init;
+extern uint8_t Auto;
+extern uint8_t Finish;
 int Speed = 200;
 int Speed_dir = 0;
+int MaxSteps = 0;
 uint8_t krokovanie = 4; //4: 1/16, 3: 1/8, 2: 1/4, 1: 1/2, 0: full step
 /* Private function prototypes */
 /* Private functions */
@@ -69,9 +73,11 @@ int main(void)
   device_Unselect();
 
   EnableDisable(0);// Disable
-  WriteSPI1(0x09, 0b00000101);//adresa,data Tval:5x31.25mA
+  WriteSPI1(0x09, 0b00000101);//adresa,data, Nastavenie prudu Tval:5x31.25mA
   WriteSPI1(0x16, 0b10001000 | (krokovanie & 0b111));//Step mode el pos: 7(000), step mode: full(000)
   EnableDisable(1);// Enable
+
+  MaxSteps = StepSet(krokovanie);
 
   initDIR1_Pin();
   setDir(1);
@@ -81,8 +87,29 @@ int main(void)
   /* Infinite loop */
   while (1)
   {
-	  i=Sensor();
-
+	  // toto je tu len koli testovaniu
+	  // Funkcia SetAngle moze zbiehat len vtedy ak je pohyb ukonceny, a nesmie zbiehat viac krat po sebe
+	  zac:
+	  if(Init && Finish){
+		  if(i == 0){
+			  Auto = 0;
+			  SetAngle(180);
+			  i++;
+			  goto zac;
+		  }
+		  if(i == 1){
+			  Auto = 0;
+			  SetAngle(45);
+			  i++;
+			  goto zac;
+		  }
+		  if(i == 2){
+			  Auto = 0;
+			  SetAngle(90);
+			  i++;
+			  goto zac;
+		  }
+	  }
 
 //	  if(!(Steps%100)){
 //		  Timer9_Config(Speed);

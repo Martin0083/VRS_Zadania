@@ -15,5 +15,6 @@
 #include "stm32l1xx_gpio.h"
 #include "stm32l1xx_syscfg.h"
 #include "Com.h"
+#include "Math.h"
 
 #endif /* MAIN_H_ */
