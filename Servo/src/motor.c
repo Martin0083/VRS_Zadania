@@ -33,6 +33,7 @@ void EasyStepper(){
 	GPIO_ToggleBits(GPIOC, GPIO_Pin_7);//PWM Generation
 
 
+
 	if(!Init){
 		Initialize();
 	}
@@ -57,7 +58,7 @@ void Initialize(void){
 
 	if(Sensor()){
 		Init = 1;
-		Steps = MaxSteps/2; // 90°
+		Steps = MaxSteps/2; // 180°
 		Finish = 1;
 		Timer9_Disable();
 	}
@@ -80,7 +81,7 @@ void StepsAuto(void){
 			GPIO_ToggleBits(GPIOA, GPIO_Pin_8);
 		}
 
-		if(Steps >= MaxSteps || Steps <= 0){ // pomocou tohto sa otáèa nekonštantnou rýchlosou
+		if(Steps >= MaxSteps || Steps <= 0){
 			Speed = 200;
 			Timer9_Config(Speed);
 		}
@@ -118,7 +119,7 @@ void StepsManual(void){
 void SetAngle(float Angle){
 
 	if(Auto == 0){
-		SetSteps = round((Angle*MaxSteps)/180);
+		SetSteps = round((Angle*MaxSteps)/360);
 
 		if(SetSteps > Steps){
 			setDir(0); // CLKW
@@ -139,16 +140,20 @@ void SetAngle(float Angle){
 // funkcia vracia Maximalny pocet krokov v zavyslosti na zvolenom mikrokrokovani, koli vypoctu polohy
 int count_of_steps(uint8_t krokovanie){
 	int MaxKrokovanie = 0;
+	float dlzka_kroku = 1.8;//1.8°
+
 
 	switch(krokovanie){
 		case 4:
-			return MaxKrokovanie = 1600*2;
+			return MaxKrokovanie = 360/(dlzka_kroku/16)*2;
 		case 3:
-			return MaxKrokovanie = 1600;
+			return MaxKrokovanie = 360/(dlzka_kroku/8)*2;
 		case 2:
-			return MaxKrokovanie = 1600/2;
+			return MaxKrokovanie = 360/(dlzka_kroku/4)*2;
 		case 1:
-			return MaxKrokovanie = 1600/4;
+			return MaxKrokovanie = 360/(dlzka_kroku/2)*2;
+		case 0:
+			return MaxKrokovanie = 360/dlzka_kroku*2;
 		default:
 			return 0;
 	}
@@ -227,6 +232,7 @@ void set_recv_data()
 		{
 			//recv_speed = received_data[1];
 			spi_set_step_mode(recv_stepping);
+			MaxSteps = count_of_steps(recv_stepping);
 			SetAngle(recv_angle);
 		}
 		else // auto mode
@@ -235,6 +241,7 @@ void set_recv_data()
 			//recv_start_angle = received_data[2];
 			//recv_end_angle = received_data[3];
 			spi_set_step_mode(recv_stepping);
+			MaxSteps = count_of_steps(recv_stepping);
 		}
 	}
 

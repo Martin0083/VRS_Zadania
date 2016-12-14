@@ -12,7 +12,7 @@
 
 int i = 0;
 int j = 0;
-char Buffer_Data_to_send[7] = "";
+uint8_t k = 0;
 
 uint16_t received_data[7];
 
@@ -24,7 +24,12 @@ float recv_start_angle = 0;
 float recv_end_angle = 0;
 uint16_t recv_mode = 0;
 
+
 extern uint8_t Auto;
+extern int MaxSteps;
+extern long Steps;
+uint16_t uhol;
+
 
 
 
@@ -96,24 +101,43 @@ void USART3_IRQHandler(void)
 	}
 
 	j++;
-	if(j >= 50000)
+	if(j >= 10000)
 	{
 		j=0;
-		if((USART_GetFlagStatus(USART3, USART_FLAG_TC) != RESET) )
-		{
 
-			send_data();
 
-			USART_ClearFlag(USART3, USART_FLAG_TC);
-		}
+			if((USART_GetFlagStatus(USART3, USART_FLAG_TC) != RESET) )
+			{
+				//if(start_sending)
+				{
+					send_data();
+				}
+				USART_ClearFlag(USART3, USART_FLAG_TC);
+			}
+
+
 	}
 
 }
 
 void send_data(void)
 {
-		USART_SendData(USART3, (uint16_t)12345);
-
+	if(k == 0)
+	{
+		USART_SendData(USART3, 0xFF);
+		k=1;
+	}
+	else if(k == 1)
+	{
+		uhol = (float)Steps/MaxSteps*36000; //1°=100
+		USART_SendData(USART3, uhol & 0xFF); //prvých 8 bitov dát
+		k=2;
+	}
+	else
+	{
+		USART_SendData(USART3, (uhol>>8) & 0xFF); // druhých 8 bitov dát
+		k=0;
+	}
 }
 
 void parse_recv_data(void)
@@ -134,4 +158,5 @@ void parse_recv_data(void)
 		recv_stepping = received_data[4];
 		recv_end_angle = (float)(received_data[5]+ ((received_data[6]<<8)&0xFF00))/100;
 	}
+
 }

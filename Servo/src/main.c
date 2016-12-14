@@ -41,10 +41,12 @@ extern long Steps;
 extern uint8_t Init;
 extern uint8_t Auto;
 extern uint8_t Finish;
+extern uint8_t tim9_enable;
 int Speed = 200;
 int Speed_dir = 0;
 int MaxSteps = 0;
 uint8_t krokovanie = 4; //4: 1/16, 3: 1/8, 2: 1/4, 1: 1/2, 0: full step
+
 /* Private function prototypes */
 /* Private functions */
 
@@ -82,14 +84,21 @@ int main(void)
   initPWM1_Pin();
   Timer9_Initialize(Speed); // us
   UART3_init();
-  send_data();
+
+  Auto = 1;
 
   /* Infinite loop */
   while (1)
   {
+	  if(Auto && !tim9_enable)
+	  {
+		  Timer9_Enable();
+	  }
+
+
 	  // toto je tu len koli testovaniu
 	  // Funkcia SetAngle moze zbiehat len vtedy ak je pohyb ukonceny, a nesmie zbiehat viac krat po sebe
-	  zac:
+	  /*zac:
 	  if(Init && Finish){
 		  if(i == 0){
 			  Auto = 0;
@@ -109,7 +118,7 @@ int main(void)
 			  i++;
 			  goto zac;
 		  }
-	  }
+	  }*/
 
 //	  if(!(Steps%100)){
 //		  Timer9_Config(Speed);

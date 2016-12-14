@@ -10,6 +10,8 @@
 TIM_TimeBaseInitTypeDef TIM_9_TimeBaseStructure;
 RCC_ClocksTypeDef RCC_Clocks;
 
+uint8_t tim9_enable=0;
+
 extern int Speed;
 
 void Timer9_Config(int period){
@@ -23,6 +25,7 @@ void Timer9_Disable(void){
 	EnableDisable(0);// Disable
 	TIM_Cmd(TIM9, DISABLE);
 	TIM_ITConfig(TIM9, TIM_IT_Update, DISABLE);
+	tim9_enable = 0;
 }
 
 void Timer9_Enable(void){
@@ -30,6 +33,7 @@ void Timer9_Enable(void){
 	EnableDisable(1);// Enable
 	TIM_Cmd(TIM9, ENABLE);
 	TIM_ITConfig(TIM9, TIM_IT_Update, ENABLE);
+	tim9_enable = 1;
 }
 
 
