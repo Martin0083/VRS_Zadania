@@ -16,5 +16,6 @@
 #include "stm32l1xx_syscfg.h"
 #include "Com.h"
 #include "Math.h"
+#include "motor.h"
 
 #endif /* MAIN_H_ */

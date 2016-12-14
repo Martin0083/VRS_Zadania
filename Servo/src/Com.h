@@ -33,6 +33,6 @@ void SetAngle(int Angle);
 void StepsAuto(void);
 void StepsManual(void);
 void Initialize(void);
-int StepSet(uint8_t krokovanie);
+int count_of_steps(uint8_t krokovanie);
 
 #endif /* COM_H_ */

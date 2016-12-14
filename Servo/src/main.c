@@ -30,8 +30,8 @@ SOFTWARE.
 #include <stddef.h>
 #include "stm32l1xx.h"
 #include <Com.h>
-
-
+#include <Usart.h>
+#include "Spi.h"
 /* Private typedef */
 /* Private define  */
 /* Private macro */
@@ -61,6 +61,7 @@ int main(void)
 {
   int i = 0;
   SystemInit();
+
   initSPI1();
 
   initCS_Pin(); // chip select pin
@@ -72,17 +73,18 @@ int main(void)
 
   device_Unselect();
 
-  EnableDisable(0);// Disable
-  WriteSPI1(0x09, 0b00000101);//adresa,data, Nastavenie prudu Tval:5x31.25mA
-  WriteSPI1(0x16, 0b10001000 | (krokovanie & 0b111));//Step mode el pos: 7(000), step mode: full(000)
-  EnableDisable(1);// Enable
 
-  MaxSteps = StepSet(krokovanie);
+  spi_set_current(5);//Nastavenie prudu Tval:5x31.25mA
+  spi_set_step_mode(0); // nastavenie step_mode
+
+  MaxSteps = count_of_steps(krokovanie);
 
   initDIR1_Pin();
   setDir(1);
   initPWM1_Pin();
   Timer9_Initialize(Speed); // us
+  UART1_init();
+  send_data();
 
   /* Infinite loop */
   while (1)

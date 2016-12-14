@@ -308,7 +308,8 @@ void Initialize(void){
 // Automaticky mode, spusti sa ak je premenna Auto == 1
 void StepsAuto(void){
 	if(Init){
-		if(GPIO_ReadOutputDataBit(GPIOA, GPIO_Pin_8)){
+		if(GPIO_ReadOutputDataBit(GPIOA, GPIO_Pin_8))//direction
+		{
 			Steps--; // ACLKW
 		}else{
 			Steps++; // CLKW
@@ -321,15 +322,15 @@ void StepsAuto(void){
 			GPIO_ToggleBits(GPIOA, GPIO_Pin_8);
 		}
 
-		if(Steps >= MaxSteps || Steps <= 0){
-			Speed = 200;
-			Timer9_Config(Speed);
-		}
-
-		if(!(Steps%50)){
-			Speed -=1;
-			Timer9_Config(Speed);
-		}
+//		if(Steps >= MaxSteps || Steps <= 0){ // pomocou tohto sa otáèa nekonštantnou rýchlosou
+//			Speed = 200;
+//			Timer9_Config(Speed);
+//		}
+//
+//		if(!(Steps%50)){
+//			Speed -=1;
+//			Timer9_Config(Speed);
+//		}
 	}
 }
 
@@ -377,8 +378,8 @@ void SetAngle(int Angle){
 	}
 }
 
-// Nastavenie Maximalneho poctu krokov v zavyslosti na zvolenom mikrokrokovani, koli vypoctu polohy
-int StepSet(uint8_t krokovanie){
+// funkcia vracia Maximalny pocet krokov v zavyslosti na zvolenom mikrokrokovani, koli vypoctu polohy
+int count_of_steps(uint8_t krokovanie){
 	int MaxKrokovanie = 0;
 
 	switch(krokovanie){
@@ -390,6 +391,8 @@ int StepSet(uint8_t krokovanie){
 			return MaxKrokovanie = 1600/2;
 		case 1:
 			return MaxKrokovanie = 1600/4;
+		default:
+			return 0;
 	}
 }
 
@@ -422,3 +425,4 @@ void device_Unselect(void)
 {
 	GPIOB->BSRRL = GPIO_Pin_6;
 }
+
