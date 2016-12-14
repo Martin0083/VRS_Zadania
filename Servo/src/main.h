@@ -14,8 +14,10 @@
 #include "stm32l1xx_spi.h"
 #include "stm32l1xx_gpio.h"
 #include "stm32l1xx_syscfg.h"
-#include "Com.h"
 #include "Math.h"
 #include "motor.h"
+#include "Pwm.h"
+#include "Spi.h"
+#include "Usart.h"
 
 #endif /* MAIN_H_ */

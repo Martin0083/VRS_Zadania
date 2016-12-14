@@ -10,4 +10,17 @@
 
 void set_recv_data();
 
+void EasyStepper(void);
+void SensorPinInit(void);
+uint8_t Sensor(void);
+void SetAngle(int Angle);
+void StepsAuto(void);
+void StepsManual(void);
+void Initialize(void);
+int count_of_steps(uint8_t krokovanie);
+void set_RST_Pin(void);
+void initRST_Pin(void);
+void initDIR1_Pin(void);
+void setDir(int dir);
+
 #endif /* MOTOR_H_ */

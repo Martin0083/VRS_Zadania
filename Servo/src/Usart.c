@@ -28,27 +28,27 @@ extern uint8_t Auto;
 
 
 
-void UART1_init(void)
+void UART3_init(void)
 {
   USART_InitTypeDef USART_InitStructure;
   NVIC_InitTypeDef NVIC_InitStructure;
   GPIO_InitTypeDef GPIO_InitStructure;
 
   /* Enable GPIO clock */       //turning on the needed peripherals
-  RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);
-  RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE);
+  RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOB, ENABLE);
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART3, ENABLE);
 
   //choosing peripherals for selected pins
-  GPIO_PinAFConfig(GPIOA, GPIO_PinSource9, GPIO_AF_USART1);
-  GPIO_PinAFConfig(GPIOA, GPIO_PinSource10, GPIO_AF_USART1);
+  GPIO_PinAFConfig(GPIOB, GPIO_PinSource10, GPIO_AF_USART3);
+  GPIO_PinAFConfig(GPIOB, GPIO_PinSource11, GPIO_AF_USART3);
 
    /* Configure USART Tx and Rx pins */
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9 | GPIO_Pin_10;
-  GPIO_Init(GPIOA, &GPIO_InitStructure);
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10 | GPIO_Pin_11;
+  GPIO_Init(GPIOB, &GPIO_InitStructure);
   //usart configuration
   USART_InitStructure.USART_BaudRate = 9600;
   USART_InitStructure.USART_WordLength = USART_WordLength_8b;
@@ -56,7 +56,7 @@ void UART1_init(void)
   USART_InitStructure.USART_Parity = USART_Parity_No;
   USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
   USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
-  USART_Init(USART1, &USART_InitStructure);
+  USART_Init(USART3, &USART_InitStructure);
 
    //configuring interrupts
   /* NVIC configuration */
@@ -64,25 +64,25 @@ void UART1_init(void)
   NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
 
   /* Enable the USARTx Interrupt */
-  NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
+  NVIC_InitStructure.NVIC_IRQChannel = USART3_IRQn;
   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 14;
   NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
   NVIC_Init(&NVIC_InitStructure);
   //choosing which event should cause interrupt
 
-  USART_ITConfig(USART1, USART_IT_RXNE | USART_IT_TC, ENABLE);
+  USART_ITConfig(USART3, USART_IT_RXNE | USART_IT_TC, ENABLE);
   /* Enable USART */
-  USART_Cmd(USART1, ENABLE);
+  USART_Cmd(USART3, ENABLE);
 }
 
 
-void USART1_IRQHandler(void)
+void USART3_IRQHandler(void)
 {
-	if(USART_GetFlagStatus(USART1, USART_FLAG_RXNE) != RESET)
+	if(USART_GetFlagStatus(USART3, USART_FLAG_RXNE) != RESET)
 	{
-		USART_ClearFlag(USART1, USART_FLAG_RXNE);
-		received_data[i] = USART_ReceiveData(USART1);
+		USART_ClearFlag(USART3, USART_FLAG_RXNE);
+		received_data[i] = USART_ReceiveData(USART3);
 		if(i==4)
 		{
 			i=0;
@@ -101,12 +101,12 @@ void USART1_IRQHandler(void)
 	if(j >= 50000)
 	{
 		j=0;
-		if((USART_GetFlagStatus(USART1, USART_FLAG_TC) != RESET) )
+		if((USART_GetFlagStatus(USART3, USART_FLAG_TC) != RESET) )
 		{
 
 			send_data();
 
-			USART_ClearFlag(USART1, USART_FLAG_TC);
+			USART_ClearFlag(USART3, USART_FLAG_TC);
 		}
 	}
 
@@ -114,7 +114,7 @@ void USART1_IRQHandler(void)
 
 void send_data(void)
 {
-		USART_SendData(USART1, (uint8_t)123);
+		USART_SendData(USART3, (uint8_t)123);
 
 }
 

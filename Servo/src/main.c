@@ -29,9 +29,8 @@ SOFTWARE.
 /* Includes */
 #include <stddef.h>
 #include "stm32l1xx.h"
-#include <Com.h>
-#include <Usart.h>
-#include "Spi.h"
+
+#include "main.h"
 /* Private typedef */
 /* Private define  */
 /* Private macro */
@@ -73,9 +72,8 @@ int main(void)
 
   device_Unselect();
 
-
   spi_set_current(5);//Nastavenie prudu Tval:5x31.25mA
-  spi_set_step_mode(0); // nastavenie step_mode
+  spi_set_step_mode(krokovanie); // nastavenie step_mode
 
   MaxSteps = count_of_steps(krokovanie);
 
@@ -83,7 +81,7 @@ int main(void)
   setDir(1);
   initPWM1_Pin();
   Timer9_Initialize(Speed); // us
-  UART1_init();
+  UART3_init();
   send_data();
 
   /* Infinite loop */
