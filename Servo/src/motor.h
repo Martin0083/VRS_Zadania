@@ -13,7 +13,7 @@ void set_recv_data();
 void EasyStepper(void);
 void SensorPinInit(void);
 uint8_t Sensor(void);
-void SetAngle(int Angle);
+void SetAngle(float Angle);
 void StepsAuto(void);
 void StepsManual(void);
 void Initialize(void);

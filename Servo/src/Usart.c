@@ -14,14 +14,14 @@ int i = 0;
 int j = 0;
 char Buffer_Data_to_send[7] = "";
 
-uint16_t received_data[5];
+uint16_t received_data[7];
 
 
 uint16_t recv_speed = 0;
-uint16_t recv_angle = 0;
+float recv_angle = 0;
 uint16_t recv_stepping = 0;
-uint16_t recv_start_angle = 0;
-uint16_t recv_end_angle = 0;
+float recv_start_angle = 0;
+float recv_end_angle = 0;
 uint16_t recv_mode = 0;
 
 extern uint8_t Auto;
@@ -83,7 +83,7 @@ void USART3_IRQHandler(void)
 	{
 		USART_ClearFlag(USART3, USART_FLAG_RXNE);
 		received_data[i] = USART_ReceiveData(USART3);
-		if(i==4)
+		if(i==6)
 		{
 			i=0;
 			parse_recv_data();
@@ -93,8 +93,6 @@ void USART3_IRQHandler(void)
 		{
 			i++;
 		}
-
-
 	}
 
 	j++;
@@ -114,25 +112,26 @@ void USART3_IRQHandler(void)
 
 void send_data(void)
 {
-		USART_SendData(USART3, (uint8_t)123);
+		USART_SendData(USART3, (uint16_t)12345);
 
 }
 
 void parse_recv_data(void)
 {
-	if(received_data[0] == 1)//mód manual
+	if(received_data[0] == 1)// manual mód
 	{
 		recv_mode = 0;
 		recv_speed = received_data[1];
-		recv_angle = received_data[2];
+		recv_angle = (float)(received_data[2]+ ((received_data[3]<<8)&0xFF00))/100;
 		recv_stepping = received_data[4];
+
 	}
-	if(received_data[0] == 2)//mód auto
+	if(received_data[0] == 2)//auto mód
 	{
 		recv_mode = 1;
 		recv_speed = received_data[1];
-		recv_start_angle = received_data[2];
-		recv_end_angle = received_data[3];
+		recv_start_angle = (float)(received_data[2]+ ((received_data[3]<<8)&0xFF00))/100;
 		recv_stepping = received_data[4];
+		recv_end_angle = (float)(received_data[5]+ ((received_data[6]<<8)&0xFF00))/100;
 	}
 }

@@ -11,10 +11,10 @@
 #include "Spi.h"
 
 extern uint16_t recv_speed;
-extern uint16_t recv_angle;
+extern float recv_angle;
 extern uint16_t recv_stepping;
-extern uint16_t recv_start_angle;
-extern uint16_t recv_end_angle;
+extern float recv_start_angle;
+extern float recv_end_angle;
 extern uint16_t recv_mode;
 
 long Steps = 0;
@@ -25,23 +25,7 @@ uint8_t Auto = 2; //1 = Automat, 0 = Manual, 2 = NOP
 uint8_t Finish;
 extern int MaxSteps;
 
-void set_recv_data()
-{
-	Auto = recv_mode;
-	if(!Auto)//mode manual
-	{
-		//recv_speed = received_data[1];
-		SetAngle(recv_angle);
-		spi_set_step_mode(recv_stepping);
-	}
-	else //mode auto
-	{
-		//recv_speed = received_data[1];
-		//recv_start_angle = received_data[2];
-		//recv_end_angle = received_data[3];
-		spi_set_step_mode(recv_stepping);
-	}
-}
+
 
 // Spustanie funkcii v zavyslosti na zvolenom mode, tato funkcia zbieha v casovaci
 void EasyStepper(){
@@ -131,7 +115,7 @@ void StepsManual(void){
 }
 
 // Funkcia prepocita zelany uhol na pocet krokov a nastavy smer
-void SetAngle(int Angle){
+void SetAngle(float Angle){
 
 	if(Auto == 0){
 		SetSteps = round((Angle*MaxSteps)/180);
@@ -231,4 +215,27 @@ void initRST_Pin(void)
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
+}
+
+
+void set_recv_data()
+{
+	if(Init && Finish)
+	{
+		Auto = recv_mode;
+		if(!Auto)// manual mode
+		{
+			//recv_speed = received_data[1];
+			spi_set_step_mode(recv_stepping);
+			SetAngle(recv_angle);
+		}
+		else // auto mode
+		{
+			//recv_speed = received_data[1];
+			//recv_start_angle = received_data[2];
+			//recv_end_angle = received_data[3];
+			spi_set_step_mode(recv_stepping);
+		}
+	}
+
 }
