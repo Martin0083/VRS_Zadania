@@ -42,7 +42,8 @@ extern uint8_t Init;
 extern uint8_t Auto;
 extern uint8_t Finish;
 extern uint8_t tim9_enable;
-int Speed = 200;
+extern uint16_t end_step;
+float period_Speed = 150;
 int Speed_dir = 0;
 int MaxSteps = 0;
 uint8_t krokovanie = 4; //4: 1/16, 3: 1/8, 2: 1/4, 1: 1/2, 0: full step
@@ -78,14 +79,17 @@ int main(void)
   spi_set_step_mode(krokovanie); // nastavenie step_mode
 
   MaxSteps = count_of_steps(krokovanie);
+  end_step = MaxSteps;
 
   initDIR1_Pin();
   setDir(1);
   initPWM1_Pin();
-  Timer9_Initialize(Speed); // us
+  Timer9_Initialize(period_Speed); // us
   UART3_init();
 
   Auto = 1;
+
+
 
   /* Infinite loop */
   while (1)
@@ -99,7 +103,7 @@ int main(void)
 	  // toto je tu len koli testovaniu
 	  // Funkcia SetAngle moze zbiehat len vtedy ak je pohyb ukonceny, a nesmie zbiehat viac krat po sebe
 	  /*zac:
-	  if(Init && Finish){
+	  if(Init && Finish && !Auto){
 		  if(i == 0){
 			  Auto = 0;
 			  SetAngle(180);
@@ -121,15 +125,15 @@ int main(void)
 	  }*/
 
 //	  if(!(Steps%100)){
-//		  Timer9_Config(Speed);
+//		  Timer9_Config(period_Speed);
 //
 //		  if(Speed_dir){
-//			  Speed -=1;
+//			  period_Speed -=1;
 //		  }else{
-//			  Speed +=1;
+//			  period_Speed +=1;
 //		  }
 //	  }
-//	  if(Speed <= 50 || Speed >= 300){
+//	  if(period_Speed <= 50 || period_Speed >= 300){
 //		  if(Speed_dir){
 //			  Speed_dir = 0;
 //		  }else{

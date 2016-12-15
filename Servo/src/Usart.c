@@ -14,7 +14,7 @@ int i = 0;
 int j = 0;
 uint8_t k = 0;
 
-uint16_t received_data[7];
+uint8_t received_data[7];
 
 
 uint16_t recv_speed = 0;
@@ -157,6 +157,7 @@ void parse_recv_data(void)
 		recv_start_angle = (float)(received_data[2]+ ((received_data[3]<<8)&0xFF00))/100;
 		recv_stepping = received_data[4];
 		recv_end_angle = (float)(received_data[5]+ ((received_data[6]<<8)&0xFF00))/100;
+
 	}
 
 }

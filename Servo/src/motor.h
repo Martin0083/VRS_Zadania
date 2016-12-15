@@ -22,5 +22,6 @@ void set_RST_Pin(void);
 void initRST_Pin(void);
 void initDIR1_Pin(void);
 void setDir(int dir);
+void SetCenterAuto(void);
 
 #endif /* MOTOR_H_ */

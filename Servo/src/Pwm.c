@@ -12,7 +12,8 @@ RCC_ClocksTypeDef RCC_Clocks;
 
 uint8_t tim9_enable=0;
 
-extern int Speed;
+extern float period_Speed;
+extern uint16_t start_periodSpeed;
 
 void Timer9_Config(int period){
 	RCC_GetClocksFreq(&RCC_Clocks);
@@ -29,7 +30,7 @@ void Timer9_Disable(void){
 }
 
 void Timer9_Enable(void){
-	Speed = 200;
+	period_Speed = start_periodSpeed;
 	EnableDisable(1);// Enable
 	TIM_Cmd(TIM9, ENABLE);
 	TIM_ITConfig(TIM9, TIM_IT_Update, ENABLE);
