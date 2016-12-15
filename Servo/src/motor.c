@@ -17,6 +17,8 @@ extern float recv_start_angle;
 extern float recv_end_angle;
 extern uint16_t recv_mode;
 
+float krokovanieZlomok = 0;
+
 long Steps = 0;
 long SetSteps = 0;
 extern float period_Speed;
@@ -26,13 +28,13 @@ uint8_t Finish;
 extern int MaxSteps;
 
 uint8_t SetAngleFinished = 1;
-
+uint8_t manual_period_speed = 200;
 
 //potom vymysliet default hodnoty
-uint16_t start_step = 30/360*MaxSteps;
-uint16_t end_step = 330/360*MaxSteps;
+uint16_t start_step = 0;//30/360*MaxSteps;
+uint16_t end_step = 0;//330/360*MaxSteps;
 uint16_t start_periodSpeed = 2000;
-uint16_t end_periodSpeed = 100;
+uint16_t end_periodSpeed = 300;
 float periodSpeedDecrement = 0;
 
 
@@ -64,7 +66,11 @@ void EasyStepper(){
 
 // Spusti s alen raz a to na zaciatku, akonahle vrati funkcia Sensor hodnotu 1, motor je na 90° a to je pociatocna poloha
 void Initialize(void){
+
+	start_step = 30*MaxSteps/360;
+	end_step = 330*MaxSteps/360;
 	periodSpeedDecrement = 2*((float)(start_periodSpeed-end_periodSpeed)/(end_step-start_step));
+
 	setDir(1); // Set any direction
 	Finish = 0;
 
@@ -124,10 +130,10 @@ void StepsManual(void){
 			Steps++; // CLKW
 		}
 
-		if(!(Steps%50)){
-			period_Speed -=1;
-			Timer9_Config(period_Speed);
-		}
+//		if(!(Steps%50)){
+//			period_Speed -=1;
+//			Timer9_Config(period_Speed);
+//		}
 
 		if(Steps == SetSteps){
 			Finish = 1;
@@ -167,12 +173,12 @@ void SetAngle(float Angle){
 		if(SetSteps > Steps){
 			setDir(0); // CLKW
 			Timer9_Enable();
-			Timer9_Config(200);
+			Timer9_Config(manual_period_speed);
 		}
 		if(SetSteps < Steps){
 			setDir(1); // ACLKW
 			Timer9_Enable();
-			Timer9_Config(200);
+			Timer9_Config(manual_period_speed);
 		}
 		if(SetSteps == Steps){
 			Timer9_Disable();
@@ -189,14 +195,19 @@ int count_of_steps(uint8_t krokovanie){
 
 	switch(krokovanie){
 		case 4:
+			krokovanieZlomok = 1/16;
 			return MaxKrokovanie = 360/(dlzka_kroku/16)*2;
 		case 3:
+			krokovanieZlomok = 1/8;
 			return MaxKrokovanie = 360/(dlzka_kroku/8)*2;
 		case 2:
+			krokovanieZlomok = 1/4;
 			return MaxKrokovanie = 360/(dlzka_kroku/4)*2;
 		case 1:
+			krokovanieZlomok = 1/2;
 			return MaxKrokovanie = 360/(dlzka_kroku/2)*2;
 		case 0:
+			krokovanieZlomok = 1;
 			return MaxKrokovanie = 360/dlzka_kroku*2;
 		default:
 			return 0;
@@ -274,20 +285,24 @@ void set_recv_data()
 		Auto = recv_mode;
 		if(!Auto)// manual mode
 		{
-			//recv_speed = received_data[1];
 			spi_set_step_mode(recv_stepping);
 			MaxSteps = count_of_steps(recv_stepping);
+
+			manual_period_speed = krokovanieZlomok*150000/recv_speed;
 			SetAngle(recv_angle);
 		}
 		else // auto mode
 		{
-			//recv_speed = received_data[1];
 			spi_set_step_mode(recv_stepping);
 			MaxSteps = count_of_steps(recv_stepping);
-			start_step = recv_start_angle/360*MaxSteps;
-			end_step = recv_end_angle/360*MaxSteps;
-			SetAngleFinished = 0;
-			SetAngle((recv_end_angle-recv_start_angle)/2);
+			start_step = recv_start_angle*MaxSteps/360;
+			end_step = recv_end_angle*MaxSteps/360;
+
+			end_periodSpeed=krokovanieZlomok*150000/recv_speed;
+			periodSpeedDecrement = 2*((float)(start_periodSpeed-end_periodSpeed)/(end_step-start_step));
+
+			SetAngleFinished = 0;//nastav stred uhla nového nového rozsahu
+			SetAngle((recv_end_angle-recv_start_angle)/2);//nastav stred uhla nového nového rozsahu
 
 
 		}
