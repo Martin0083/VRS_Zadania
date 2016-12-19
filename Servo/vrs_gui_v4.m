@@ -57,7 +57,7 @@
   
    %general objects
    hconnect = uicontrol('Style','togglebutton','String','Connect','Position',[20,235,70,50]);
-   hport = uicontrol('Style','edit','String','COM1','Position',[120,240,70,25]);
+   hport = uicontrol('Style','edit','String','COM4','Position',[120,240,70,25]);
    htext1 = uicontrol('Style','text','String','Èíslo portu:','Position',[120,270,70,15]);
    hvykonaj = uicontrol('Style','togglebutton','String','Vykonaj','Position',[220,235,70,50]); 
    hend = uicontrol('Style','togglebutton','String','Koniec','Position',[520,235,70,50]); 
@@ -126,7 +126,7 @@
        if get(hconnect,'Value')==1 && komunikacia==0
            com=get(hport,'String');
            s = serial(com);
-           set(s,'BaudRate',9600, 'Parity', 'none','FlowControl', 'none','DataBits',8,'StopBits',1);
+           set(s,'BaudRate',4800, 'Parity', 'none','FlowControl', 'none','DataBits',8,'StopBits',1);
            fopen(s);
            komunikacia=1;
            set(s,'Timeout',0.1);
@@ -146,13 +146,20 @@
            break
        end
        
-       %ak beží komunikácia vykreslujem hodnoty:
+%ak beží komunikácia vykreslujem hodnoty:
        if komunikacia==1
            try
-               mess=fread(s, 3, 'uchar');
+               mess=fread(s, 5, 'uchar');
                if mess(1)==255;
-                   uhol=bi2de([de2bi(mess(2)) de2bi(mess(3))])/100;
-
+                   uhol = (bitsll(mess(3),8)+mess(2))/100;
+               else
+                   if mess(2)==255;
+                      uhol = (bitsll(mess(4),8)+mess(3))/100;
+                   else
+                       if mess(3)==255;
+                           uhol = (bitsll(mess(5),8)+mess(4))/100;
+                       end
+                   end
                end
             catch
                disp('neznámy uhol')
