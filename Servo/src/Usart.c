@@ -24,14 +24,10 @@ float recv_start_angle = 0;
 float recv_end_angle = 0;
 uint16_t recv_mode = 0;
 
-
 extern uint8_t Auto;
 extern int MaxSteps;
 extern long Steps;
 uint16_t uhol;
-
-
-
 
 void UART3_init(void)
 {
@@ -104,20 +100,12 @@ void USART3_IRQHandler(void)
 	if(j >= 10000)
 	{
 		j=0;
-
-
 			if((USART_GetFlagStatus(USART3, USART_FLAG_TC) != RESET) )
 			{
-				//if(start_sending)
-				{
-					send_data();
-				}
+				send_data();
 				USART_ClearFlag(USART3, USART_FLAG_TC);
 			}
-
-
 	}
-
 }
 
 void send_data(void)
@@ -157,7 +145,5 @@ void parse_recv_data(void)
 		recv_start_angle = (float)(received_data[2]+ ((received_data[3]<<8)&0xFF00))/100;
 		recv_stepping = received_data[4];
 		recv_end_angle = (float)(received_data[5]+ ((received_data[6]<<8)&0xFF00))/100;
-
 	}
-
 }

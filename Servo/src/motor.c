@@ -30,7 +30,6 @@ extern int MaxSteps;
 uint8_t SetAngleFinished = 1;
 uint16_t manual_period_speed = 200;
 
-//potom vymysliet default hodnoty
 uint16_t start_step = 0;//30/360*MaxSteps;
 uint16_t end_step = 0;//330/360*MaxSteps;
 uint16_t start_periodSpeed = 2000;
@@ -44,8 +43,6 @@ float periodSpeedDecrement = 0;
 void EasyStepper(){
 
 	GPIO_ToggleBits(GPIOC, GPIO_Pin_7);//PWM Generation
-
-
 
 	if(!Init){
 		Initialize();
@@ -142,6 +139,7 @@ void StepsManual(void){
 	}
 }
 
+//funkcia ktorá sa spušta v EasyStepper a slúži na nastavenie polohy medzi hraniènými polohami pre auto m´d
 void SetCenterAuto(void){
 	if(Init){
 		//Finish = 0;
@@ -187,7 +185,7 @@ void SetAngle(float Angle){
 	//}
 }
 
-// funkcia vracia Maximalny pocet krokov v zavyslosti na zvolenom mikrokrokovani, koli vypoctu polohy
+// funkcia vracia Maximalny pocet krokov v zavislosti na zvolenom mikrokrokovani, koli vypoctu polohy
 int count_of_steps(uint8_t krokovanie){
 	int MaxKrokovanie = 0;
 	float dlzka_kroku = 1.8;//1.8°
@@ -289,7 +287,7 @@ void set_recv_data()
 			spi_set_step_mode(recv_stepping);
 			MaxSteps = count_of_steps(recv_stepping);
 
-			manual_period_speed = (krokovanieZlomok*150000)/recv_speed;
+			manual_period_speed = (krokovanieZlomok*150000)/recv_speed; // význam konštanty 150 000 je vysvetlený v dokumentácií
 			SetAngle(recv_angle);
 		}
 		else // auto mode
@@ -304,8 +302,6 @@ void set_recv_data()
 
 			SetAngleFinished = 0;//nastav stred uhla nového nového rozsahu
 			SetAngle(((recv_end_angle-recv_start_angle)/2)+recv_start_angle);//nastav stred uhla nového nového rozsahu
-
-
 		}
 	}
 

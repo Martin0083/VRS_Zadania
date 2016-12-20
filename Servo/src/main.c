@@ -89,8 +89,6 @@ int main(void)
 
   Auto = 1;
 
-
-
   /* Infinite loop */
   while (1)
   {
