@@ -142,7 +142,7 @@ void send_data(void)
 
 void parse_recv_data(void)
 {
-	if(received_data[0] == 1)// manual mód
+	if(received_data[0] == 2)// manual mód
 	{
 		recv_mode = 0;
 		recv_speed = received_data[1];
@@ -150,7 +150,7 @@ void parse_recv_data(void)
 		recv_stepping = received_data[4];
 
 	}
-	if(received_data[0] == 2)//auto mód
+	if(received_data[0] == 1)//auto mód
 	{
 		recv_mode = 1;
 		recv_speed = received_data[1];

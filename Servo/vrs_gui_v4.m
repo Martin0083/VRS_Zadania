@@ -38,11 +38,11 @@
    hrychlost_a=uicontrol('Parent',tab2,'Style','edit','String','50','Position',[90,145,70,25]);
    htext1a = uicontrol('Parent',tab2,'Style','text','String','R˝chlosù:','Position',[15,145,70,25]);
    
-   hhranicne_a_upper=uicontrol('Parent',tab2,'Style','edit','String','60','Position',[90,45,70,25]);
-   hhranicne_a_lower=uicontrol('Parent',tab2,'Style','edit','String','50','Position',[90,15,70,25]);
+   hhranicne_a_upper=uicontrol('Parent',tab2,'Style','edit','String','330','Position',[90,45,70,25]);
+   hhranicne_a_lower=uicontrol('Parent',tab2,'Style','edit','String','30','Position',[90,15,70,25]);
    htext2a = uicontrol('Parent',tab2,'Style','text','String','HraniËnÈ polohy:','Position',[15,45,70,30]);
    
-   hkrokovanie_a=uicontrol('Parent',tab2,'Style','edit','String','20','Position',[90,95,70,25]);
+   hkrokovanie_a=uicontrol('Parent',tab2,'Style','edit','String','4','Position',[90,95,70,25]);
    htext3a = uicontrol('Parent',tab2,'Style','text','String','Krokovanie:','Position',[15,95,70,25]);
    
    %manual tab:
@@ -52,7 +52,7 @@
    hpoloha_m=uicontrol('Parent',tab1,'Style','edit','String','50','Position',[90,45,70,25]);
    htext2m = uicontrol('Parent',tab1,'Style','text','String','Poloha:','Position',[15,45,70,30]);
    
-   hkrokovanie_m=uicontrol('Parent',tab1,'Style','edit','String','50','Position',[90,95,70,25]);
+   hkrokovanie_m=uicontrol('Parent',tab1,'Style','edit','String','4','Position',[90,95,70,25]);
    htext3m = uicontrol('Parent',tab1,'Style','text','String','Krokovanie:','Position',[15,95,70,25]);
   
    %general objects
@@ -164,6 +164,7 @@
             catch
                disp('nezn·my uhol')
            end
+           uhol=360-uhol;
            delete(ciara);
            ciara=plot([0 0.5*cosd(uhol)],[0 0.5*sind(uhol)],'r','LineWidth',4);
            drawnow
