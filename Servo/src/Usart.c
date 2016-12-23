@@ -19,9 +19,10 @@ uint8_t received_data[7];
 
 uint16_t recv_speed = 0;
 float recv_angle = 0;
-uint16_t recv_stepping = 0;
-float recv_start_angle = 0;
-float recv_end_angle = 0;
+uint16_t recv_stepping = 4;
+uint16_t recv_stepping_old = 4;
+float recv_start_angle = 30; // 0
+float recv_end_angle = 330; // 0
 uint16_t recv_mode = 0;
 
 extern uint8_t Auto;

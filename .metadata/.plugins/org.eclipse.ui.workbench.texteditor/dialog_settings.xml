@@ -2,18 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Get" key="selection"/>
+		<item value="SetAngleFinished" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="SetAngleFinished"/>
+			<item value="spi_set_step_mode"/>
+			<item value="spi_set_current"/>
 			<item value="get"/>
 			<item value="Value"/>
 			<item value="EXTI"/>
 			<item value="GPIO_STRUCT"/>
 			<item value="GPIO_Init"/>
-			<item value="init"/>
 		</list>
 		<list key="replacehistory">
 			<item value="GPIO_STRUCT_A"/>

@@ -92,6 +92,8 @@ int main(void)
   /* Infinite loop */
   while (1)
   {
+
+
 	  if(Auto && !tim9_enable)
 	  {
 		  Timer9_Enable();

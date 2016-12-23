@@ -13,6 +13,7 @@
 extern uint16_t recv_speed;
 extern float recv_angle;
 extern uint16_t recv_stepping;
+extern uint16_t recv_stepping_old;
 extern float recv_start_angle;
 extern float recv_end_angle;
 extern uint16_t recv_mode;
@@ -25,13 +26,15 @@ extern float period_Speed;
 uint8_t Init = 0;
 uint8_t Auto = 2; //1 = Automat, 0 = Manual, 2 = NOP
 uint8_t Finish;
+uint8_t SetCenterAutoInit = 0;
+uint8_t MicroSteppingChange = 0;
 extern int MaxSteps;
 
 uint8_t SetAngleFinished = 1;
 uint16_t manual_period_speed = 200;
 
-uint16_t start_step = 0;//30/360*MaxSteps;
-uint16_t end_step = 0;//330/360*MaxSteps;
+uint16_t start_step = 0;//30/360*MaxSteps; 0
+uint16_t end_step = 0;//330/360*MaxSteps; 0
 uint16_t start_periodSpeed = 2000;
 uint16_t end_periodSpeed = 300;
 float periodSpeedDecrement = 0;
@@ -48,14 +51,21 @@ void EasyStepper(){
 		Initialize();
 	}
 
-	if(Auto == 1){
-		if(Init){
+	if(Init){
+
+		if(Auto == 1){
+			if(MicroSteppingChange){
+				SetAngle(((recv_end_angle-recv_start_angle)/2)+recv_start_angle);//nastav stred uhla nového nového rozsahu
+				MicroSteppingChange = 0;
+			}
 			StepsAuto();
 		}
-	}
 
-	if(Auto == 0){
-		if(Init){
+		if(Auto == 0){
+			if(MicroSteppingChange){
+				SetAngle(recv_angle);
+				MicroSteppingChange = 0;
+			}
 			StepsManual();
 		}
 	}
@@ -64,8 +74,8 @@ void EasyStepper(){
 // Spusti s alen raz a to na zaciatku, akonahle vrati funkcia Sensor hodnotu 1, motor je na 90° a to je pociatocna poloha
 void Initialize(void){
 
-	start_step = 30*MaxSteps/360;
-	end_step = 330*MaxSteps/360;
+	start_step = recv_start_angle*MaxSteps/360;
+	end_step = recv_end_angle*MaxSteps/360;
 	periodSpeedDecrement = 2*((float)(start_periodSpeed-end_periodSpeed)/(end_step-start_step));
 
 	setDir(1); // Set any direction
@@ -73,9 +83,10 @@ void Initialize(void){
 
 	if(Sensor()){
 		Init = 1;
+		recv_stepping_old = recv_stepping;
 		Steps = MaxSteps/2; // 180°
 		Finish = 1;
-		Timer9_Disable();
+		//Timer9_Disable();
 	}
 }
 
@@ -92,7 +103,7 @@ void StepsAuto(void){
 		if(Steps >= end_step){
 			GPIO_ToggleBits(GPIOA, GPIO_Pin_8);
 		}
-		if(Steps == start_step){
+		if(Steps <= start_step){
 			GPIO_ToggleBits(GPIOA, GPIO_Pin_8);
 		}
 
@@ -119,70 +130,57 @@ void StepsAuto(void){
 
 // manualny mod, ak jre premenna Auto == 0 tak funkcia otoci motor na zelanu poziciu ktoru nastavila funkcia SetAngle
 void StepsManual(void){
-	if(Init){
-		Finish = 0;
-		if(GPIO_ReadOutputDataBit(GPIOA, GPIO_Pin_8)){
-			Steps--; // ACLKW
-		}else{
-			Steps++; // CLKW
-		}
+	Finish = 0;
+	if(GPIO_ReadOutputDataBit(GPIOA, GPIO_Pin_8)){
+		Steps--; // ACLKW
+	}else{
+		Steps++; // CLKW
+	}
 
 //		if(!(Steps%50)){
 //			period_Speed -=1;
 //			Timer9_Config(period_Speed);
 //		}
 
-		if(Steps == SetSteps){
-			Finish = 1;
-			Timer9_Disable();
-		}
+	if(Steps == SetSteps){
+		Finish = 1;
+		Timer9_Disable();
 	}
 }
 
 //funkcia ktorá sa spušta v EasyStepper a slúži na nastavenie polohy medzi hraniènými polohami pre auto m´d
 void SetCenterAuto(void){
-	if(Init){
-		//Finish = 0;
-		if(GPIO_ReadOutputDataBit(GPIOA, GPIO_Pin_8)){
-			Steps--; // ACLKW
-		}else{
-			Steps++; // CLKW
-		}
 
-		if(!(Steps%50)){
-			period_Speed -=1;
-			Timer9_Config(period_Speed);
-		}
+	if(GPIO_ReadOutputDataBit(GPIOA, GPIO_Pin_8)){
+		Steps--; // ACLKW
+	}else{
+		Steps++; // CLKW
+	}
 
-		if(Steps == SetSteps){
-			//Finish = 1;
-			Timer9_Disable();
-			SetAngleFinished = 1;
-		}
+	if(Steps == SetSteps){
+		SetAngleFinished = 1; // Nachadza sa v strede
 	}
 }
 
 // Funkcia prepocita zelany uhol na pocet krokov a nastavy smer
 void SetAngle(float Angle){
 
-	//if(Auto == 0){
-		SetSteps = round((Angle*MaxSteps)/360);
+	SetSteps = round((Angle*MaxSteps)/360);
 
-		if(SetSteps > Steps){
-			setDir(0); // CLKW
-			Timer9_Enable();
-			Timer9_Config(manual_period_speed);
-		}
-		if(SetSteps < Steps){
-			setDir(1); // ACLKW
-			Timer9_Enable();
-			Timer9_Config(manual_period_speed);
-		}
-		if(SetSteps == Steps){
-			Timer9_Disable();
+	if(SetSteps > Steps){
+		setDir(0); // CLKW
+		Timer9_Enable();
+		Timer9_Config(manual_period_speed);
+	}
+	if(SetSteps < Steps){
+		setDir(1); // ACLKW
+		Timer9_Enable();
+		Timer9_Config(manual_period_speed);
+	}
+	if(SetSteps == Steps){
+		Timer9_Disable();
+	}
 
-		}
-	//}
 }
 
 // funkcia vracia Maximalny pocet krokov v zavislosti na zvolenom mikrokrokovani, koli vypoctu polohy
@@ -281,12 +279,14 @@ void set_recv_data()
 	if(Init && Finish)
 	{
 		Auto = recv_mode;
+		if(recv_stepping != recv_stepping_old){
+			Init = 0;
+			MicroSteppingChange = 1;
+		}
 		if(!Auto)// manual mode
 		{
-			Timer9_Disable();
 			spi_set_step_mode(recv_stepping);
 			MaxSteps = count_of_steps(recv_stepping);
-
 			manual_period_speed = (krokovanieZlomok*150000)/recv_speed; // význam konštanty 150 000 je vysvetlený v dokumentácií
 			SetAngle(recv_angle);
 		}
@@ -301,7 +301,9 @@ void set_recv_data()
 			periodSpeedDecrement = 2*((float)(start_periodSpeed-end_periodSpeed)/(end_step-start_step));
 
 			SetAngleFinished = 0;//nastav stred uhla nového nového rozsahu
-			SetAngle(((recv_end_angle-recv_start_angle)/2)+recv_start_angle);//nastav stred uhla nového nového rozsahu
+			SetCenterAutoInit = 0; // znova nastav motor do inicializacnej polohy
+			MicroSteppingChange = 1; // aj ked sa microstepping nezmenil je potrebne znova nastavit stred, ked je tato premenna na 1 tak sa pred spustenim auto rezimu nastavi na stred noveho rozsahu
+			Init = 0;
 		}
 	}
 

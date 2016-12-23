@@ -23,7 +23,7 @@ void Timer9_Config(int period){
 }
 
 void Timer9_Disable(void){
-	EnableDisable(0);// Disable
+	//EnableDisable(0);// Disable
 	TIM_Cmd(TIM9, DISABLE);
 	TIM_ITConfig(TIM9, TIM_IT_Update, DISABLE);
 	tim9_enable = 0;
