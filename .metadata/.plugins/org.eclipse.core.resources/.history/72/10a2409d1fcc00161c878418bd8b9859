@@ -195,15 +195,19 @@ int count_of_steps(uint8_t krokovanie){
 	switch(krokovanie){
 		case 4:
 			krokovanieZlomok = 0.0625; //1/16;
+			//krokovanieZlomok = 16; //1/16;
 			return MaxKrokovanie = 360/(dlzka_kroku/16)*2;
 		case 3:
 			krokovanieZlomok = 0.125;//1/8;
+			//krokovanieZlomok = 8;//1/8;
 			return MaxKrokovanie = 360/(dlzka_kroku/8)*2;
 		case 2:
 			krokovanieZlomok = 0.25;//1/4;
+			//krokovanieZlomok = 4;//1/4;
 			return MaxKrokovanie = 360/(dlzka_kroku/4)*2;
 		case 1:
 			krokovanieZlomok = 0.5;//1/2;
+			//krokovanieZlomok = 2;//1/2;
 			return MaxKrokovanie = 360/(dlzka_kroku/2)*2;
 		case 0:
 			krokovanieZlomok = 1;

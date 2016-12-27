@@ -2167,7 +2167,7 @@ OUTPUT(Servo.elf elf32-littlearm)
  .debug_ranges  0x00000798       0x58 src\stm32l1xx_it.o
  .debug_ranges  0x000007f0       0x20 src\system_stm32l1xx.o
 
-.debug_line     0x00000000     0x2e5e
+.debug_line     0x00000000     0x2e6a
  .debug_line    0x00000000      0x242 Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
  .debug_line    0x00000242      0x35d Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
  .debug_line    0x0000059f      0x521 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
@@ -2178,10 +2178,10 @@ OUTPUT(Servo.elf elf32-littlearm)
  .debug_line    0x00001f76      0x2ec src\Spi.o
  .debug_line    0x00002262      0x25e src\Usart.o
  .debug_line    0x000024c0      0x18c src\main.o
- .debug_line    0x0000264c      0x343 src\motor.o
- .debug_line    0x0000298f       0x7c src\startup_stm32l1xx_hd.o
- .debug_line    0x00002a0b      0x239 src\stm32l1xx_it.o
- .debug_line    0x00002c44      0x21a src\system_stm32l1xx.o
+ .debug_line    0x0000264c      0x34f src\motor.o
+ .debug_line    0x0000299b       0x7c src\startup_stm32l1xx_hd.o
+ .debug_line    0x00002a17      0x239 src\stm32l1xx_it.o
+ .debug_line    0x00002c50      0x21a src\system_stm32l1xx.o
 
 .debug_str      0x00000000     0x2696
  .debug_str     0x00000000      0x3b1 Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o

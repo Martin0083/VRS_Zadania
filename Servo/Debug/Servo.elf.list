@@ -29,13 +29,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  12 .debug_ranges 00000810  00000000  00000000  00028550  2**3
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_line   00002e5e  00000000  00000000  00028d60  2**0
+ 13 .debug_line   00002e6a  00000000  00000000  00028d60  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_str    00002696  00000000  00000000  0002bbbe  2**0
+ 14 .debug_str    00002696  00000000  00000000  0002bbca  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .comment      0000007e  00000000  00000000  0002e254  2**0
+ 15 .comment      0000007e  00000000  00000000  0002e260  2**0
                   CONTENTS, READONLY
- 16 .debug_frame  00002518  00000000  00000000  0002e2d4  2**2
+ 16 .debug_frame  00002518  00000000  00000000  0002e2e0  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -4766,54 +4766,75 @@ void StepsManual(void){
  8002008:	4b11      	ldr	r3, [pc, #68]	; (8002050 <StepsManual+0x4c>)
  800200a:	2200      	movs	r2, #0
  800200c:	701a      	strb	r2, [r3, #0]
-	if(GPIO_ReadOutputDataBit(GPIOA, GPIO_Pin_8)){
- 800200e:	f44f 7180 	mov.w	r1, #256	; 0x100
- 8002012:	4810      	ldr	r0, [pc, #64]	; (8002054 <StepsManual+0x50>)
- 8002014:	f7fe fe5a 	bl	8000ccc <GPIO_ReadOutputDataBit>
- 8002018:	4603      	mov	r3, r0
- 800201a:	2b00      	cmp	r3, #0
- 800201c:	d005      	beq.n	800202a <StepsManual+0x26>
-		Steps--; // ACLKW
- 800201e:	4b0e      	ldr	r3, [pc, #56]	; (8002058 <StepsManual+0x54>)
- 8002020:	681b      	ldr	r3, [r3, #0]
- 8002022:	3b01      	subs	r3, #1
- 8002024:	4a0c      	ldr	r2, [pc, #48]	; (8002058 <StepsManual+0x54>)
- 8002026:	6013      	str	r3, [r2, #0]
- 8002028:	e004      	b.n	8002034 <StepsManual+0x30>
-	}else{
-		Steps++; // CLKW
- 800202a:	4b0b      	ldr	r3, [pc, #44]	; (8002058 <StepsManual+0x54>)
- 800202c:	681b      	ldr	r3, [r3, #0]
- 800202e:	3301      	adds	r3, #1
- 8002030:	4a09      	ldr	r2, [pc, #36]	; (8002058 <StepsManual+0x54>)
- 8002032:	6013      	str	r3, [r2, #0]
-//		if(!(Steps%50)){
+
+	if(Steps == SetSteps){
+ 800200e:	4b11      	ldr	r3, [pc, #68]	; (8002054 <StepsManual+0x50>)
+ 8002010:	681a      	ldr	r2, [r3, #0]
+ 8002012:	4b11      	ldr	r3, [pc, #68]	; (8002058 <StepsManual+0x54>)
+ 8002014:	681b      	ldr	r3, [r3, #0]
+ 8002016:	429a      	cmp	r2, r3
+ 8002018:	d105      	bne.n	8002026 <StepsManual+0x22>
+		Finish = 1;
+ 800201a:	4b0d      	ldr	r3, [pc, #52]	; (8002050 <StepsManual+0x4c>)
+ 800201c:	2201      	movs	r2, #1
+ 800201e:	701a      	strb	r2, [r3, #0]
+		Timer9_Disable();
+ 8002020:	f7ff fafe 	bl	8001620 <Timer9_Disable>
 //			period_Speed -=1;
 //			Timer9_Config(period_Speed);
 //		}
 
-	if(Steps == SetSteps){
- 8002034:	4b08      	ldr	r3, [pc, #32]	; (8002058 <StepsManual+0x54>)
- 8002036:	681a      	ldr	r2, [r3, #0]
- 8002038:	4b08      	ldr	r3, [pc, #32]	; (800205c <StepsManual+0x58>)
- 800203a:	681b      	ldr	r3, [r3, #0]
- 800203c:	429a      	cmp	r2, r3
- 800203e:	d104      	bne.n	800204a <StepsManual+0x46>
-		Finish = 1;
- 8002040:	4b03      	ldr	r3, [pc, #12]	; (8002050 <StepsManual+0x4c>)
- 8002042:	2201      	movs	r2, #1
- 8002044:	701a      	strb	r2, [r3, #0]
-		Timer9_Disable();
- 8002046:	f7ff faeb 	bl	8001620 <Timer9_Disable>
-	}
+
 }
- 800204a:	bf00      	nop
- 800204c:	bd80      	pop	{r7, pc}
- 800204e:	bf00      	nop
+ 8002024:	e012      	b.n	800204c <StepsManual+0x48>
+
+	if(Steps == SetSteps){
+		Finish = 1;
+		Timer9_Disable();
+	}else{
+		if(GPIO_ReadOutputDataBit(GPIOA, GPIO_Pin_8)){
+ 8002026:	f44f 7180 	mov.w	r1, #256	; 0x100
+ 800202a:	480c      	ldr	r0, [pc, #48]	; (800205c <StepsManual+0x58>)
+ 800202c:	f7fe fe4e 	bl	8000ccc <GPIO_ReadOutputDataBit>
+ 8002030:	4603      	mov	r3, r0
+ 8002032:	2b00      	cmp	r3, #0
+ 8002034:	d005      	beq.n	8002042 <StepsManual+0x3e>
+			Steps--; // ACLKW
+ 8002036:	4b07      	ldr	r3, [pc, #28]	; (8002054 <StepsManual+0x50>)
+ 8002038:	681b      	ldr	r3, [r3, #0]
+ 800203a:	3b01      	subs	r3, #1
+ 800203c:	4a05      	ldr	r2, [pc, #20]	; (8002054 <StepsManual+0x50>)
+ 800203e:	6013      	str	r3, [r2, #0]
+//			period_Speed -=1;
+//			Timer9_Config(period_Speed);
+//		}
+
+
+}
+ 8002040:	e004      	b.n	800204c <StepsManual+0x48>
+		Timer9_Disable();
+	}else{
+		if(GPIO_ReadOutputDataBit(GPIOA, GPIO_Pin_8)){
+			Steps--; // ACLKW
+		}else{
+			Steps++; // CLKW
+ 8002042:	4b04      	ldr	r3, [pc, #16]	; (8002054 <StepsManual+0x50>)
+ 8002044:	681b      	ldr	r3, [r3, #0]
+ 8002046:	3301      	adds	r3, #1
+ 8002048:	4a02      	ldr	r2, [pc, #8]	; (8002054 <StepsManual+0x50>)
+ 800204a:	6013      	str	r3, [r2, #0]
+//			period_Speed -=1;
+//			Timer9_Config(period_Speed);
+//		}
+
+
+}
+ 800204c:	bf00      	nop
+ 800204e:	bd80      	pop	{r7, pc}
  8002050:	200000af 	.word	0x200000af
- 8002054:	40020000 	.word	0x40020000
- 8002058:	20000074 	.word	0x20000074
- 800205c:	20000078 	.word	0x20000078
+ 8002054:	20000074 	.word	0x20000074
+ 8002058:	20000078 	.word	0x20000078
+ 800205c:	40020000 	.word	0x40020000
 
 08002060 <SetCenterAuto>:
 

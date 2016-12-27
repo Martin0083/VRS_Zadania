@@ -131,16 +131,10 @@ void StepsAuto(void){
 // manualny mod, ak jre premenna Auto == 0 tak funkcia otoci motor na zelanu poziciu ktoru nastavila funkcia SetAngle
 void StepsManual(void){
 	Finish = 0;
-
-	if(Steps == SetSteps){
-		Finish = 1;
-		Timer9_Disable();
+	if(GPIO_ReadOutputDataBit(GPIOA, GPIO_Pin_8)){
+		Steps--; // ACLKW
 	}else{
-		if(GPIO_ReadOutputDataBit(GPIOA, GPIO_Pin_8)){
-			Steps--; // ACLKW
-		}else{
-			Steps++; // CLKW
-		}
+		Steps++; // CLKW
 	}
 
 //		if(!(Steps%50)){
@@ -148,7 +142,10 @@ void StepsManual(void){
 //			Timer9_Config(period_Speed);
 //		}
 
-
+	if(Steps == SetSteps){
+		Finish = 1;
+		Timer9_Disable();
+	}
 }
 
 //funkcia ktorá sa spušta v EasyStepper a slúži na nastavenie polohy medzi hraniènými polohami pre auto m´d
@@ -194,16 +191,20 @@ int count_of_steps(uint8_t krokovanie){
 
 	switch(krokovanie){
 		case 4:
-			krokovanieZlomok = 0.0625; //1/16;
+			//krokovanieZlomok = 0.0625; //1/16;
+			krokovanieZlomok = 16; //1/16;
 			return MaxKrokovanie = 360/(dlzka_kroku/16)*2;
 		case 3:
-			krokovanieZlomok = 0.125;//1/8;
+			//krokovanieZlomok = 0.125;//1/8;
+			krokovanieZlomok = 8;//1/8;
 			return MaxKrokovanie = 360/(dlzka_kroku/8)*2;
 		case 2:
-			krokovanieZlomok = 0.25;//1/4;
+			//krokovanieZlomok = 0.25;//1/4;
+			krokovanieZlomok = 4;//1/4;
 			return MaxKrokovanie = 360/(dlzka_kroku/4)*2;
 		case 1:
-			krokovanieZlomok = 0.5;//1/2;
+			//krokovanieZlomok = 0.5;//1/2;
+			krokovanieZlomok = 2;//1/2;
 			return MaxKrokovanie = 360/(dlzka_kroku/2)*2;
 		case 0:
 			krokovanieZlomok = 1;
