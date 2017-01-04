@@ -52,7 +52,7 @@ void UART3_init(void)
   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10 | GPIO_Pin_11;
   GPIO_Init(GPIOB, &GPIO_InitStructure);
   //usart configuration
-  USART_InitStructure.USART_BaudRate = 9600;
+  USART_InitStructure.USART_BaudRate = 115200*2;
   USART_InitStructure.USART_WordLength = USART_WordLength_8b;
   USART_InitStructure.USART_StopBits = USART_StopBits_1;
   USART_InitStructure.USART_Parity = USART_Parity_No;
@@ -98,7 +98,7 @@ void USART3_IRQHandler(void)
 	}
 
 	j++;
-	if(j >= 10000)
+	if(j >= 1000)
 	{
 		j=0;
 			if((USART_GetFlagStatus(USART3, USART_FLAG_TC) != RESET) )

@@ -43,7 +43,9 @@ extern uint8_t Auto;
 extern uint8_t Finish;
 extern uint8_t tim9_enable;
 extern uint16_t end_step;
-float period_Speed = 150;
+
+extern uint16_t autoModePeriod;
+//float period_Speed = 150;
 int Speed_dir = 0;
 int MaxSteps = 0;
 uint8_t krokovanie = 4; //4: 1/16, 3: 1/8, 2: 1/4, 1: 1/2, 0: full step
@@ -61,7 +63,7 @@ uint8_t krokovanie = 4; //4: 1/16, 3: 1/8, 2: 1/4, 1: 1/2, 0: full step
 */
 int main(void)
 {
-  int i = 0;
+ int i = 0;
   SystemInit();
 
   initSPI1();
@@ -84,7 +86,7 @@ int main(void)
   initDIR1_Pin();
   setDir(1);
   initPWM1_Pin();
-  Timer9_Initialize(period_Speed); // us
+  Timer9_Initialize(autoModePeriod); // us
   UART3_init();
 
   Auto = 1;
@@ -94,10 +96,10 @@ int main(void)
   {
 
 
-	  if(Auto && !tim9_enable)
-	  {
-		  Timer9_Enable();
-	  }
+//	  if(Auto && !tim9_enable)
+//	  {
+//		  Timer9_Enable();
+//	  }
 
 
 	  // toto je tu len koli testovaniu

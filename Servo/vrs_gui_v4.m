@@ -35,8 +35,8 @@
    %elements inside tabs:
    
    %auto tab:
-   hrychlost_a=uicontrol('Parent',tab2,'Style','edit','String','50','Position',[90,145,70,25]);
-   htext1a = uicontrol('Parent',tab2,'Style','text','String','R˝chlosù:','Position',[15,145,70,25]);
+   hrychlost_a=uicontrol('Parent',tab2,'Style','edit','String','0.2','Position',[90,145,70,25]);
+   htext1a = uicontrol('Parent',tab2,'Style','text','String','R˝chlosù(0,2-1 ms):','Position',[15,145,70,25]);
    
    hhranicne_a_upper=uicontrol('Parent',tab2,'Style','edit','String','330','Position',[90,45,70,25]);
    hhranicne_a_lower=uicontrol('Parent',tab2,'Style','edit','String','30','Position',[90,15,70,25]);
@@ -126,7 +126,7 @@
        if get(hconnect,'Value')==1 && komunikacia==0
            com=get(hport,'String');
            s = serial(com);
-           set(s,'BaudRate',4800, 'Parity', 'none','FlowControl', 'none','DataBits',8,'StopBits',1);
+           set(s,'BaudRate',115200, 'Parity', 'none','FlowControl', 'none','DataBits',8,'StopBits',1);
            fopen(s);
            komunikacia=1;
            set(s,'Timeout',0.1);
@@ -191,7 +191,7 @@
            end
            %ak je auto mod
            if get(hauto,'Value')==1
-               rychlost=str2num(get(hrychlost_a,'String'));
+               rychlost=str2num(get(hrychlost_a,'String'))*10;
                poloha=100*str2num(get(hhranicne_a_lower,'String'));
                poloha=de2bi(poloha);
                if(length(poloha)<16)
