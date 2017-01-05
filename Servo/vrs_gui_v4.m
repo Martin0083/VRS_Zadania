@@ -232,14 +232,14 @@ try
                end    
                poloha1=bi2de(poloha(1:8));
                poloha2=bi2de(poloha(9:16));
-               krokovanie_string=get(hkrokovanie_m,'String');
+               krokovanie_string=get(hkrokovanie_m,'Value');
                krokovanie=str2num(krokovanie_string(1));
                message=[2 rychlost poloha1 poloha2 krokovanie 0 0];
                fwrite(s,message,'uchar');
            end
            %ak je auto mod
            if get(hauto,'Value')==1
-               rychlost=str2num(get(hrychlost_a,'String'));
+               rychlost=str2num(get(hrychlost_a,'Value'));
                poloha=100*str2num(get(hhranicne_a_lower,'String'));
                poloha=de2bi(poloha);
                if(length(poloha)<16)
