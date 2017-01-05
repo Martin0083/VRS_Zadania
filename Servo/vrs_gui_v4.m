@@ -1,18 +1,3 @@
-% [20:54:54] Jaro Duraj: STM -> UI
-% -poloha
-% -ci inicializácia prebehla ok(ak posielam nieèo na UART, init prebehol v poriadku)
-% [20:55:00 | Upravené 20:55:16] Jaro Duraj: UI -> STM
-% - mode auto/man
-%  -man:  - polohu
-%   -rýchlos 
-%   -hranièné polohy
-%   -krokovanie
-%   
-%  -auto: -rýchlos
-%   -hranièné polohy
-%   -krokovanie
-
-
 %  Create and then hide the UI as it is being constructed.
    close all
    clear
@@ -20,14 +5,17 @@
    
    warning off
    delete(instrfindall)
-   
-   f = figure('Visible','off','Position',[300,300,600,300]);
+   disp('Yaaay! :D')
+try   
+   f = figure('Visible','off','Position',[300,300,600,350]);
+   set(f,'Resize','off');
    
    tabgp = uitabgroup(f,'Position',[0.55 0.05 0.3 0.70]);
    tab1 = uitab(tabgp,'Title','Manual');
    tab2 = uitab(tabgp,'Title','Auto');
    gp = uipanel(f,'Position',[0.55 0.79 0.3 0.15]);
-   
+   gp2 = uipanel(f,'Position',[0.87 0.055 0.11 0.63]);
+   gp3 = uipanel(f,'Position',[0.035 0.7 0.45 0.07]);
    %currenttab = tabgp.SelectedTab; %return current sellected tab
    
    %  Construct the components.
@@ -35,36 +23,44 @@
    %elements inside tabs:
    
    %auto tab:
-   hrychlost_a=uicontrol('Parent',tab2,'Style','edit','String','0.2','Position',[90,145,70,25]);
-   htext1a = uicontrol('Parent',tab2,'Style','text','String','Rýchlos(0,2-1 ms):','Position',[15,145,70,25]);
+   hrychlost_a=uicontrol('Parent',tab2,'Style','edit','String','50','Position',[90,145,70,25]);
+   htext1a = uicontrol('Parent',tab2,'Style','text','String','Max zrÃ½chlenie [m/s^2]:','Position',[10,145,80,30]);
    
    hhranicne_a_upper=uicontrol('Parent',tab2,'Style','edit','String','330','Position',[90,45,70,25]);
    hhranicne_a_lower=uicontrol('Parent',tab2,'Style','edit','String','30','Position',[90,15,70,25]);
-   htext2a = uicontrol('Parent',tab2,'Style','text','String','Hranièné polohy:','Position',[15,45,70,30]);
+   htext2a = uicontrol('Parent',tab2,'Style','text','String','HraniÄnÃ© polohy [Â°]:','Position',[15,45,70,30]);
    
-   hkrokovanie_a=uicontrol('Parent',tab2,'Style','edit','String','4','Position',[90,95,70,25]);
+   hkrokovanie_a=uicontrol('Parent',tab2,'Style','popup','String',{'0 (1/1 kroku)','1 (1/2 kroku)','2 (1/4 kroku)','3 (1/8 kroku)','4 (1/16 kroku)'},'Position',[90,95,70,25]);
    htext3a = uicontrol('Parent',tab2,'Style','text','String','Krokovanie:','Position',[15,95,70,25]);
    
    %manual tab:
    hrychlost_m=uicontrol('Parent',tab1,'Style','edit','String','50','Position',[90,145,70,25]);
-   htext1m = uicontrol('Parent',tab1,'Style','text','String','Rýchlos:','Position',[15,145,70,25]);
+   htext1m = uicontrol('Parent',tab1,'Style','text','String','RÃ½chlosÅ¥ [otÃ¡Äky/min]:','Position',[15,145,70,30]);
    
    hpoloha_m=uicontrol('Parent',tab1,'Style','edit','String','50','Position',[90,45,70,25]);
-   htext2m = uicontrol('Parent',tab1,'Style','text','String','Poloha:','Position',[15,45,70,30]);
+   htext2m = uicontrol('Parent',tab1,'Style','text','String','Poloha [Â°]:','Position',[15,45,70,30]);
    
-   hkrokovanie_m=uicontrol('Parent',tab1,'Style','edit','String','4','Position',[90,95,70,25]);
+   hkrokovanie_m=uicontrol('Parent',tab1,'Style','popup','String',{'0 (1/1 kroku)','1 (1/2 kroku)','2 (1/4 kroku)','3 (1/8 kroku)','4 (1/16 kroku)'},'Position',[90,95,70,25]);
    htext3m = uicontrol('Parent',tab1,'Style','text','String','Krokovanie:','Position',[15,95,70,25]);
   
    %general objects
-   hconnect = uicontrol('Style','togglebutton','String','Connect','Position',[20,235,70,50]);
-   hport = uicontrol('Style','edit','String','COM4','Position',[120,240,70,25]);
-   htext1 = uicontrol('Style','text','String','Èíslo portu:','Position',[120,270,70,15]);
-   hvykonaj = uicontrol('Style','togglebutton','String','Vykonaj','Position',[220,235,70,50]); 
-   hend = uicontrol('Style','togglebutton','String','Koniec','Position',[520,235,70,50]); 
+   hconnect = uicontrol('Style','togglebutton','String','Connect','Position',[20,280,70,50]);
+   hport = uicontrol('Style','edit','String','COM4','Position',[120,285,70,25]);
+   htext1 = uicontrol('Style','text','String','ÄŒÃ­slo portu:','Position',[120,310,70,15]);
+   hvykonaj = uicontrol('Style','togglebutton','String','Vykonaj','Position',[220,280,70,50]); 
+   hend = uicontrol('Style','togglebutton','String','Koniec','Position',[520,280,70,50]); 
+   htext_info = uicontrol('Style','text','String','Seruuuuuuuuuuus!','Position',[25,250,250,15]);
+   
+   
+   htext0 = uicontrol('Style','text','String','0','Position',[255,115,20,15]);
+   htext90 = uicontrol('Style','text','String','90','Position',[140,220,20,15]);
+   htext180 = uicontrol('Style','text','String','180','Position',[25,115,20,15]);
+   htext360 = uicontrol('Style','text','String','270','Position',[140,10,20,15]);
+   
    
    %auto/man panel:
-   hauto = uicontrol('Style','radiobutton','String','Auto','Position',[350,255,50,15],'Value',1); 
-   hman = uicontrol('Style','radiobutton','String','Manual','Position',[420,255,75,15],'Value',0); 
+   hauto = uicontrol('Style','radiobutton','String','Auto','Position',[350,295,50,15],'Value',1); 
+   hman = uicontrol('Style','radiobutton','String','Manual','Position',[420,295,75,15],'Value',0); 
   
    ha = axes('Units','Pixels','Position',[50,30,200,185]); 
    %align([hconnect,hvykonaj,hautoman,tabgp],'Center','None');
@@ -90,7 +86,7 @@
    %ciara=plot([0 0.5*cosd(uhol)],[0 0.5*sind(uhol)],'r','LineWidth',4);
 
    
-   %potadeto nastavím figure a pridám do workspace
+   %potadeto nastavÃ­m figure a pridÃ¡m do workspace
    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    
    %init stuff:
@@ -99,10 +95,10 @@
    ciara=plot([0 0.5*cosd(uhol)],[0 0.5*sind(uhol)],'r','LineWidth',4);
    drawnow
    
-   %nekoneèný cyklus na detekciu zmien a bežný chod:
+   %nekone?nÃ½ cyklus na detekciu zmien a beÅ¾nÃ½ chod:
    while(1)
        % -- preklikanie medzi auto a man, ked kliknem na man
-       % -- tak zruší auto a opaène
+       % -- tak zruÅ¡Ã­ auto a opaÄne
        if get(hauto,'Value')==0 && get(hman,'Value')==1
            stav_man_auto=1;
        end
@@ -120,21 +116,24 @@
            end
            stav_man_auto=0;
        end
-       drawnow %musím vykresli lebo potom je busy a nerobí niè
        
-       %ak nekomunikujem tak zapnem kominkáciu
+       drawnow %musÃ­m vykresli? lebo potom je busy a nerobÃ­ ni?
+       
+       %ak nekomunikujem tak zapnem kominkÃ¡ciu
        if get(hconnect,'Value')==1 && komunikacia==0
            com=get(hport,'String');
            s = serial(com);
-           set(s,'BaudRate',115200, 'Parity', 'none','FlowControl', 'none','DataBits',8,'StopBits',1);
+           set(s,'BaudRate',4800, 'Parity', 'none','FlowControl', 'none','DataBits',8,'StopBits',1);
            fopen(s);
            komunikacia=1;
            set(s,'Timeout',0.1);
            set(hconnect,'Value',0);
+           set(htext_info,'String','Pripojenie ÃºspeÅ¡nÃ©');
        end
        
-       %ak komunikujem a chcem skonèi program
+       %ak komunikujem a chcem skon?i? program
        if get(hend,'Value')==1 && komunikacia==1
+           set(htext_info,'String','KonÄÃ­m...');
            fclose(s);
            komunikacia=0;
            delete(s)
@@ -146,7 +145,7 @@
            break
        end
        
-%ak beží komunikácia vykreslujem hodnoty:
+%ak beÅ¾Ã­ komunikÃ¡cia vykreslujem hodnoty:
        if komunikacia==1
            try
                mess=fread(s, 5, 'uchar');
@@ -162,7 +161,7 @@
                    end
                end
             catch
-               disp('neznámy uhol')
+               disp('neznÃ¡my uhol')
            end
            uhol=360-uhol;
            delete(ciara);
@@ -170,7 +169,55 @@
            drawnow
        end
        
-       %ak stlaèím tlaèidlo vykonaj:
+       %limity nastavenÃ­:
+       
+       %limity polohy:
+       if(str2num(get(hpoloha_m,'String'))>360)
+           set(hpoloha_m,'String', '360');
+       end
+       if(str2num(get(hpoloha_m,'String'))<0)
+           set(hpoloha_m,'String', '0');
+       end
+       
+       %limity hraniÄnÃ½ch hodnÃ´t:
+       if(str2num(get(hrychlost_m,'String'))>100)
+           set(hrychlost_m,'String','100');
+       end
+       if(str2num(get(hrychlost_m,'String'))<1)
+           set(hrychlost_m,'String','100');
+       end
+       
+       if(str2num(get(hrychlost_a,'String'))>1)
+           set(hrychlost_a,'String','1');
+       end
+       if(str2num(get(hrychlost_a,'String'))<0.2)
+           set(hrychlost_a,'String','0.2');
+       end
+       
+       
+       
+       if(str2num(get(hhranicne_a_lower,'String'))>360)
+           set(hhranicne_a_lower,'String', '360');
+       end
+       if(str2num(get(hhranicne_a_lower,'String'))<0)
+           set(hhranicne_a_lower,'String', '0');
+       end
+       
+       if(str2num(get(hhranicne_a_upper,'String'))>360)
+           set(hhranicne_a_upper,'String','360');
+       end
+       if(str2num(get(hhranicne_a_upper,'String'))<0)
+           set(hhranicne_a_upper,'String','0');
+       end
+       
+       if(str2num(get(hhranicne_a_upper,'String'))<str2num(get(hhranicne_a_lower,'String')))
+           set(hhranicne_a_lower,'String',get(hhranicne_a_upper,'String')); 
+       end
+       
+       
+       
+       
+       %ak stla?Ã­m tla?idlo vykonaj:
        if get(hvykonaj,'Value')==1
            %ak je man mod
            if get(hman,'Value')==1
@@ -185,13 +232,14 @@
                end    
                poloha1=bi2de(poloha(1:8));
                poloha2=bi2de(poloha(9:16));
-               krokovanie=str2num(get(hkrokovanie_m,'String'));
+               krokovanie_string=get(hkrokovanie_m,'String');
+               krokovanie=str2num(krokovanie_string(1));
                message=[2 rychlost poloha1 poloha2 krokovanie 0 0];
                fwrite(s,message,'uchar');
            end
            %ak je auto mod
            if get(hauto,'Value')==1
-               rychlost=str2num(get(hrychlost_a,'String'))*10;
+               rychlost=str2num(get(hrychlost_a,'String'));
                poloha=100*str2num(get(hhranicne_a_lower,'String'));
                poloha=de2bi(poloha);
                if(length(poloha)<16)
@@ -203,7 +251,8 @@
                end
                poloha2a=bi2de(poloha(9:16));
                poloha1a=bi2de(poloha(1:8));
-               krokovanie=str2num(get(hkrokovanie_a,'String'));
+               krokovanie_string=get(hkrokovanie_a,'String');
+               krokovanie=str2num(krokovanie_string(1));
                poloha=100*str2num(get(hhranicne_a_upper,'String'));
                poloha=de2bi(poloha);
                if(length(poloha)<16)
@@ -224,6 +273,10 @@
        %pause(0.01)
    end
    hold off
-   disp('koniec programu')
-   
-     
+   disp('Koniec programu')
+   close Figure 1
+catch
+    disp('Error')
+    set(htext_info,'String','VolaÄo si posral...');
+    clear
+end
