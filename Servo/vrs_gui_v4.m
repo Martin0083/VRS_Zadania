@@ -24,11 +24,11 @@ try
    
    %auto tab:
    hrychlost_a=uicontrol('Parent',tab2,'Style','edit','String','50','Position',[90,145,70,25]);
-   htext1a = uicontrol('Parent',tab2,'Style','text','String','Zmenšenie času jedného kroku každú sekundu [ms]:','Position',[10,145,80,60]);
+   htext1a = uicontrol('Parent',tab2,'Style','text','String','Zmensenie casu jedneho kroku kazdu sekundu [ms]:','Position',[10,145,80,60]);
    
    hhranicne_a_upper=uicontrol('Parent',tab2,'Style','edit','String','330','Position',[90,45,70,25]);
    hhranicne_a_lower=uicontrol('Parent',tab2,'Style','edit','String','30','Position',[90,15,70,25]);
-   htext2a = uicontrol('Parent',tab2,'Style','text','String','Hranicne polohy [°]:','Position',[15,45,70,30]);
+   htext2a = uicontrol('Parent',tab2,'Style','text','String','Hranicne polohy [�]:','Position',[15,45,70,30]);
    
    hkrokovanie_a=uicontrol('Parent',tab2,'Style','popup','String',{'0 (1/1 kroku)','1 (1/2 kroku)','2 (1/4 kroku)','3 (1/8 kroku)','4 (1/16 kroku)'},'Position',[90,95,70,25]);
    htext3a = uicontrol('Parent',tab2,'Style','text','String','Krokovanie:','Position',[15,95,70,25]);
@@ -38,7 +38,7 @@ try
    htext1m = uicontrol('Parent',tab1,'Style','text','String','Rychlost [otacky/min]:','Position',[15,145,70,30]);
    
    hpoloha_m=uicontrol('Parent',tab1,'Style','edit','String','50','Position',[90,45,70,25]);
-   htext2m = uicontrol('Parent',tab1,'Style','text','String','Poloha [°]:','Position',[15,45,70,30]);
+   htext2m = uicontrol('Parent',tab1,'Style','text','String','Poloha [�]:','Position',[15,45,70,30]);
    
    hkrokovanie_m=uicontrol('Parent',tab1,'Style','popup','String',{'0 (1/1 kroku)','1 (1/2 kroku)','2 (1/4 kroku)','3 (1/8 kroku)','4 (1/16 kroku)'},'Position',[90,95,70,25]);
    htext3m = uicontrol('Parent',tab1,'Style','text','String','Krokovanie:','Position',[15,95,70,25]);
