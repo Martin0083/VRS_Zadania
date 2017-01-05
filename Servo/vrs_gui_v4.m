@@ -55,7 +55,7 @@ try
    htext0 = uicontrol('Style','text','String','0','Position',[255,115,20,15]);
    htext90 = uicontrol('Style','text','String','90','Position',[140,10,20,15]);
    htext180 = uicontrol('Style','text','String','180','Position',[25,115,20,15]);
-   htext270 = uicontrol('Style','text','String','270','Position',[140,220,20,15])
+   htext270 = uicontrol('Style','text','String','270','Position',[140,220,20,15]);
    
    
    %auto/man panel:
@@ -221,7 +221,7 @@ try
        if get(hvykonaj,'Value')==1
            %ak je man mod
            if get(hman,'Value')==1
-               rychlost=str2num(get(hrychlost_m,'Value'));
+               rychlost=str2num(get(hrychlost_m,'String'));
                poloha=de2bi(100*str2num(get(hpoloha_m,'String')));
                if(length(poloha)<16)
                    for k=length(poloha):1:16
@@ -238,7 +238,7 @@ try
            end
            %ak je auto mod
            if get(hauto,'Value')==1
-               rychlost=10*str2num(get(hrychlost_a,'Value'));
+               rychlost=10*str2num(get(hrychlost_a,'String'));
                poloha=100*str2num(get(hhranicne_a_lower,'String'));
                poloha=de2bi(poloha);
                if(length(poloha)<16)
@@ -278,4 +278,3 @@ catch
     set(htext_info,'String','Nastalo zlyhanie programu. Je potrebny restart GUI');
     clear
 end
-
