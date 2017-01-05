@@ -24,7 +24,7 @@ try
    
    %auto tab:
    hrychlost_a=uicontrol('Parent',tab2,'Style','edit','String','50','Position',[90,145,70,25]);
-   htext1a = uicontrol('Parent',tab2,'Style','text','String','Max zrychlenie [m/s^2]:','Position',[10,145,80,30]);
+   htext1a = uicontrol('Parent',tab2,'Style','text','String','Zmenšenie času jedného kroku každú sekundu [ms]:','Position',[10,145,80,60]);
    
    hhranicne_a_upper=uicontrol('Parent',tab2,'Style','edit','String','330','Position',[90,45,70,25]);
    hhranicne_a_lower=uicontrol('Parent',tab2,'Style','edit','String','30','Position',[90,15,70,25]);
