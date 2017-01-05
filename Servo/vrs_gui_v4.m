@@ -5,7 +5,7 @@
    
    warning off
    delete(instrfindall)
-   disp('Yaaay! :D')
+   disp('Spustenie GUI')
 try   
    f = figure('Visible','off','Position',[300,300,600,350]);
    set(f,'Resize','off');
@@ -24,18 +24,18 @@ try
    
    %auto tab:
    hrychlost_a=uicontrol('Parent',tab2,'Style','edit','String','50','Position',[90,145,70,25]);
-   htext1a = uicontrol('Parent',tab2,'Style','text','String','Max zrýchlenie [m/s^2]:','Position',[10,145,80,30]);
+   htext1a = uicontrol('Parent',tab2,'Style','text','String','Max zrychlenie [m/s^2]:','Position',[10,145,80,30]);
    
    hhranicne_a_upper=uicontrol('Parent',tab2,'Style','edit','String','330','Position',[90,45,70,25]);
    hhranicne_a_lower=uicontrol('Parent',tab2,'Style','edit','String','30','Position',[90,15,70,25]);
-   htext2a = uicontrol('Parent',tab2,'Style','text','String','Hraničné polohy [°]:','Position',[15,45,70,30]);
+   htext2a = uicontrol('Parent',tab2,'Style','text','String','Hranicne polohy [°]:','Position',[15,45,70,30]);
    
    hkrokovanie_a=uicontrol('Parent',tab2,'Style','popup','String',{'0 (1/1 kroku)','1 (1/2 kroku)','2 (1/4 kroku)','3 (1/8 kroku)','4 (1/16 kroku)'},'Position',[90,95,70,25]);
    htext3a = uicontrol('Parent',tab2,'Style','text','String','Krokovanie:','Position',[15,95,70,25]);
    
    %manual tab:
    hrychlost_m=uicontrol('Parent',tab1,'Style','edit','String','50','Position',[90,145,70,25]);
-   htext1m = uicontrol('Parent',tab1,'Style','text','String','Rýchlosť [otáčky/min]:','Position',[15,145,70,30]);
+   htext1m = uicontrol('Parent',tab1,'Style','text','String','Rychlost [otacky/min]:','Position',[15,145,70,30]);
    
    hpoloha_m=uicontrol('Parent',tab1,'Style','edit','String','50','Position',[90,45,70,25]);
    htext2m = uicontrol('Parent',tab1,'Style','text','String','Poloha [°]:','Position',[15,45,70,30]);
@@ -46,16 +46,16 @@ try
    %general objects
    hconnect = uicontrol('Style','togglebutton','String','Connect','Position',[20,280,70,50]);
    hport = uicontrol('Style','edit','String','COM4','Position',[120,285,70,25]);
-   htext1 = uicontrol('Style','text','String','Číslo portu:','Position',[120,310,70,15]);
+   htext1 = uicontrol('Style','text','String','Cislo portu:','Position',[120,310,70,15]);
    hvykonaj = uicontrol('Style','togglebutton','String','Vykonaj','Position',[220,280,70,50]); 
    hend = uicontrol('Style','togglebutton','String','Koniec','Position',[520,280,70,50]); 
-   htext_info = uicontrol('Style','text','String','Seruuuuuuuuuuus!','Position',[25,250,250,15]);
+   htext_info = uicontrol('Style','text','String','Vitajte! Na zaciatku je potrebne kliknut na Connect','Position',[25,250,250,15]);
    
    
    htext0 = uicontrol('Style','text','String','0','Position',[255,115,20,15]);
-   htext90 = uicontrol('Style','text','String','90','Position',[140,220,20,15]);
+   htext90 = uicontrol('Style','text','String','90','Position',[140,10,20,15]);
    htext180 = uicontrol('Style','text','String','180','Position',[25,115,20,15]);
-   htext360 = uicontrol('Style','text','String','270','Position',[140,10,20,15]);
+   htext270 = uicontrol('Style','text','String','270','Position',[140,220,20,15])
    
    
    %auto/man panel:
@@ -123,17 +123,17 @@ try
        if get(hconnect,'Value')==1 && komunikacia==0
            com=get(hport,'String');
            s = serial(com);
-           set(s,'BaudRate',4800, 'Parity', 'none','FlowControl', 'none','DataBits',8,'StopBits',1);
+           set(s,'BaudRate',115200, 'Parity', 'none','FlowControl', 'none','DataBits',8,'StopBits',1);
            fopen(s);
            komunikacia=1;
            set(s,'Timeout',0.1);
            set(hconnect,'Value',0);
-           set(htext_info,'String','Pripojenie úspešné');
+           set(htext_info,'String','Pripojenie uspesne');
        end
        
        %ak komunikujem a chcem skon?i? program
        if get(hend,'Value')==1 && komunikacia==1
-           set(htext_info,'String','Končím...');
+           set(htext_info,'String','Koncim...');
            fclose(s);
            komunikacia=0;
            delete(s)
@@ -221,7 +221,7 @@ try
        if get(hvykonaj,'Value')==1
            %ak je man mod
            if get(hman,'Value')==1
-               rychlost=str2num(get(hrychlost_m,'String'));
+               rychlost=str2num(get(hrychlost_m,'Value'));
                poloha=de2bi(100*str2num(get(hpoloha_m,'String')));
                if(length(poloha)<16)
                    for k=length(poloha):1:16
@@ -232,14 +232,13 @@ try
                end    
                poloha1=bi2de(poloha(1:8));
                poloha2=bi2de(poloha(9:16));
-               krokovanie_string=get(hkrokovanie_m,'Value');
-               krokovanie=str2num(krokovanie_string(1))-1;
+               krokovanie=get(hkrokovanie_m,'Value')-1;
                message=[2 rychlost poloha1 poloha2 krokovanie 0 0];
                fwrite(s,message,'uchar');
            end
            %ak je auto mod
            if get(hauto,'Value')==1
-               rychlost=str2num(get(hrychlost_a,'Value'));
+               rychlost=10*str2num(get(hrychlost_a,'Value'));
                poloha=100*str2num(get(hhranicne_a_lower,'String'));
                poloha=de2bi(poloha);
                if(length(poloha)<16)
@@ -251,8 +250,7 @@ try
                end
                poloha2a=bi2de(poloha(9:16));
                poloha1a=bi2de(poloha(1:8));
-               krokovanie_string=get(hkrokovanie_a,'String');
-               krokovanie=str2num(krokovanie_string(1))-1;
+               krokovanie=get(hkrokovanie_a,'Value')-1;
                poloha=100*str2num(get(hhranicne_a_upper,'String'));
                poloha=de2bi(poloha);
                if(length(poloha)<16)
@@ -277,6 +275,7 @@ try
    close Figure 1
 catch
     disp('Error')
-    set(htext_info,'String','Volačo si posral...');
+    set(htext_info,'String','Nastalo zlyhanie programu. Je potrebny restart GUI');
     clear
 end
+
