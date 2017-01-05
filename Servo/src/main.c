@@ -45,13 +45,9 @@ extern uint8_t tim9_enable;
 extern uint16_t end_step;
 
 extern uint16_t autoModePeriod;
-//float period_Speed = 150;
 int Speed_dir = 0;
 int MaxSteps = 0;
 uint8_t krokovanie = 4; //4: 1/16, 3: 1/8, 2: 1/4, 1: 1/2, 0: full step
-
-/* Private function prototypes */
-/* Private functions */
 
 
 /**
@@ -67,7 +63,6 @@ int main(void)
   SystemInit();
 
   initSPI1();
-
   initCS_Pin(); // chip select pin
 
   SensorPinInit();
@@ -86,7 +81,7 @@ int main(void)
   initDIR1_Pin();
   setDir(1);
   initPWM1_Pin();
-  Timer9_Initialize(autoModePeriod); // us
+  Timer9_Initialize(autoModePeriod); // 100us
   UART3_init();
 
   Auto = 1;
@@ -94,57 +89,6 @@ int main(void)
   /* Infinite loop */
   while (1)
   {
-
-
-//	  if(Auto && !tim9_enable)
-//	  {
-//		  Timer9_Enable();
-//	  }
-
-
-	  // toto je tu len koli testovaniu
-	  // Funkcia SetAngle moze zbiehat len vtedy ak je pohyb ukonceny, a nesmie zbiehat viac krat po sebe
-	  /*zac:
-	  if(Init && Finish && !Auto){
-		  if(i == 0){
-			  Auto = 0;
-			  SetAngle(180);
-			  i++;
-			  goto zac;
-		  }
-		  if(i == 1){
-			  Auto = 0;
-			  SetAngle(45);
-			  i++;
-			  goto zac;
-		  }
-		  if(i == 2){
-			  Auto = 0;
-			  SetAngle(90);
-			  i++;
-			  goto zac;
-		  }
-	  }*/
-
-//	  if(!(Steps%100)){
-//		  Timer9_Config(period_Speed);
-//
-//		  if(Speed_dir){
-//			  period_Speed -=1;
-//		  }else{
-//			  period_Speed +=1;
-//		  }
-//	  }
-//	  if(period_Speed <= 50 || period_Speed >= 300){
-//		  if(Speed_dir){
-//			  Speed_dir = 0;
-//		  }else{
-//			  Speed_dir = 1;
-//		  }
-//	  }
-
-	  //rxData = ReadSPI1(0x09);
-	  //rxData = ReadSPI1(0x16);
   }
   return 0;
 }

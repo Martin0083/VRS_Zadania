@@ -8,12 +8,9 @@
 #ifndef USART_H_
 #define USART_H_
 
-void adc_init(void);
 void UART3_init(void);
-void USART1_IRQHandler(void);
-void ADC1_IRQHandler(void);
+void USART3_IRQHandler(void);
 void send_data(void);
-void fill_buffer(void);
 void parse_recv_data(void);
 
 #endif /* USART_H_ */

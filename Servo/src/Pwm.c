@@ -12,36 +12,30 @@ RCC_ClocksTypeDef RCC_Clocks;
 
 uint8_t tim9_enable=0;
 
-//extern float period_Speed;
-extern uint16_t start_periodSpeed;
 
-void Timer9_Config(int period){
+void Timer9_Config(int period){ //funkcia na zmenu periódy èasovaèa TIM9
 	RCC_GetClocksFreq(&RCC_Clocks);
 	TIM_9_TimeBaseStructure.TIM_Period = period - 1;
 	TIM_9_TimeBaseStructure.TIM_Prescaler = (RCC_Clocks.PCLK2_Frequency/1000000) - 1;
 	TIM_TimeBaseInit(TIM9, &TIM_9_TimeBaseStructure);
 }
 
-void Timer9_Disable(void){
-	//EnableDisable(0);// Disable
+void Timer9_Disable(void){ //funkcia na vypínanie èasovaèa TIM9
 	TIM_Cmd(TIM9, DISABLE);
 	TIM_ITConfig(TIM9, TIM_IT_Update, DISABLE);
 	tim9_enable = 0;
 }
 
-void Timer9_Enable(void){
-	//period_Speed = start_periodSpeed;
+void Timer9_Enable(void){ //funkcia na zapínanie èasovaèa TIM9
 	EnableDisable(1);// Enable
 	TIM_Cmd(TIM9, ENABLE);
 	TIM_ITConfig(TIM9, TIM_IT_Update, ENABLE);
 	tim9_enable = 1;
 }
 
-
-void Timer9_Initialize(int period){
+void Timer9_Initialize(int period){ //funkcia na inicializáciu èasovaèa TIM9.
 
 	RCC_GetClocksFreq(&RCC_Clocks);
-
 	/* TIM9 clock enable */
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM9, ENABLE);
 	/* Time base configuration */
@@ -62,7 +56,7 @@ void Timer9_Initialize(int period){
 
 }
 
-void initPWM1_Pin(void)
+void initPWM1_Pin(void) //funkcia na inicializáciu pinu PC7, ktorého výstupom je PWM signál.
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
 	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOC, ENABLE);

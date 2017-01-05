@@ -30,7 +30,7 @@ extern int MaxSteps;
 extern long Steps;
 uint16_t uhol;
 
-void UART3_init(void)
+void UART3_init(void) //funkcia na inicializáciu USART3
 {
   USART_InitTypeDef USART_InitStructure;
   NVIC_InitTypeDef NVIC_InitStructure;
@@ -79,7 +79,7 @@ void UART3_init(void)
 }
 
 
-void USART3_IRQHandler(void)
+void USART3_IRQHandler(void) //handler preruèenia USART3
 {
 	if(USART_GetFlagStatus(USART3, USART_FLAG_RXNE) != RESET)
 	{
@@ -109,7 +109,7 @@ void USART3_IRQHandler(void)
 	}
 }
 
-void send_data(void)
+void send_data(void) //funkcia na odoslanie dát cez USART3
 {
 	if(k == 0)
 	{
@@ -129,7 +129,7 @@ void send_data(void)
 	}
 }
 
-void parse_recv_data(void)
+void parse_recv_data(void) //funkcia na parsovanie prijatých dát
 {
 	if(received_data[0] == 2)// manual mód
 	{

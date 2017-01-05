@@ -18,39 +18,31 @@ extern uint16_t recv_stepping_old;
 extern float recv_start_angle;
 extern float recv_end_angle;
 extern uint16_t recv_mode;
+extern int MaxSteps;
 
 float krokovanieZlomok = 0;
-
 long Steps = 0;
 long SetSteps = 0;
-//extern float period_Speed;
 uint8_t Init = 0;
 uint8_t Auto = 2; //1 = Automat, 0 = Manual, 2 = NOP
 uint8_t Finish;
 uint8_t SetCenterAutoInit = 0;
 uint8_t MicroSteppingChange = 0;
-extern int MaxSteps;
 
 uint8_t SetAngleFinished = 1;
 uint16_t manual_period_speed = 2000;
 
 uint16_t start_step = 0;//30/360*MaxSteps; 0
 uint16_t end_step = 0;//330/360*MaxSteps; 0
-//uint16_t start_periodSpeed = 2000;
-//uint16_t end_periodSpeed = 300;
-//float periodSpeedDecrement = 0;
 
 uint32_t interupt_counter_auto = 0;
 uint32_t change_speed = 10000; //change_speed=1 znamená zmena rýchlosti každých 100 us  //100*10000=zmena každých 1000 000 us= 1s
 uint16_t autoModePeriod = 100; // 100us
-uint16_t TimeOfToggle = START_SPEED; //lebo jedno toggle za 9375us je 1otáèka/minútu pri 1/16 krokovaní
-							//jeden krok za 94*100*2 us = 18,8ms
-							//3191,5 krokov/sekundu
-uint16_t TimeOfToggleDecrement = 4; //toto èíslo znamená o ko¾ko sa bude zmenšova rýchlos každých 0,5 s
+uint16_t TimeOfToggle = START_SPEED; //jeden krok za 100*100*2 us = 20ms
+uint16_t TimeOfToggleDecrement = 4; //toto èíslo znamená o ko¾ko sa bude zmenšova rýchlos každých 1 s
 									//ak je TimeOfToggleDecrement=1, tak 1*100*2 us = 0,2ms
 									//ak je TimeOfToggleDecrement=2, tak 2*100*2 us = 0,4ms
-									//							=5,     5*100*2 us = 1000us = 1 ms
-									//Každých 1s sa zmenší èas jedného kroku o 1ms
+									//							 =5,     5*100*2 us = 1000us = 1 ms. Takže každú 1s sa zmenší èas jedného kroku o 1ms
 double TimeOfToggleDecrement_double = 0;
 
 // Spustanie funkcii v zavyslosti na zvolenom mode, tato funkcia zbieha v casovaci
@@ -62,14 +54,12 @@ void EasyStepper(){
 	}
 
 	if(!Init){
-		Initialize();
+		SetToInitPosition();
 	}
 
 	if(Init){
-
 		if(Auto == 1){
 			if(MicroSteppingChange){
-				//SetAngle(((recv_end_angle-recv_start_angle)/2)+recv_start_angle);//nastav stred uhla nového nového rozsahu
 				MicroSteppingChange = 0;
 			}
 			StepsAuto();
@@ -86,11 +76,10 @@ void EasyStepper(){
 }
 
 // Spusti s alen raz a to na zaciatku, akonahle vrati funkcia Sensor hodnotu 1, motor je na 90° a to je pociatocna poloha
-void Initialize(void){
+void SetToInitPosition(void){
 
 	start_step = recv_start_angle*MaxSteps/360;
 	end_step = recv_end_angle*MaxSteps/360;
-	//periodSpeedDecrement = 2*((float)(start_periodSpeed-end_periodSpeed)/(end_step-start_step));
 
 	setDir(1); // Set any direction
 	Finish = 0;
@@ -100,16 +89,14 @@ void Initialize(void){
 		recv_stepping_old = recv_stepping;
 		Steps = MaxSteps/2; // 180°
 		Finish = 1;
-		//Timer9_Disable();
 	}
 }
 
 // Automaticky mode, spusti sa ak je premenna Auto == 1
 void StepsAuto(void){
-
 	if(SetAngleFinished){
 
-		interupt_counter_auto++; //10us
+		interupt_counter_auto++; //100us
 		if(interupt_counter_auto>=change_speed)//
 		{
 			TimeOfToggle = TimeOfToggle - TimeOfToggleDecrement;
@@ -119,20 +106,16 @@ void StepsAuto(void){
 		if(TimeOfToggle==0)
 		{
 			TimeOfToggle = 1;
-			uint8_t martin = 1;
 		}
 		if(!(interupt_counter_auto%TimeOfToggle))
 		{
 			if(Steps >= end_step || Steps <= start_step){
 				interupt_counter_auto = 0;
-				TimeOfToggle = START_SPEED; //lebo jedno toggle za 9375us je 1otáèka/minútu pri 1/16 krokovaní
-				//period_Speed=start_periodSpeed;
-				//Timer9_Config(period_Speed);
-				GPIO_ToggleBits(GPIOA, GPIO_Pin_8);
+				TimeOfToggle = START_SPEED;
+				GPIO_ToggleBits(GPIOA, GPIO_Pin_8); //zmena smeru
 			}
 
 			GPIO_ToggleBits(GPIOC, GPIO_Pin_7);//PWM Generation
-
 
 			if(GPIO_ReadOutputDataBit(GPIOA, GPIO_Pin_8))//direction
 			{
@@ -140,25 +123,13 @@ void StepsAuto(void){
 			}else{
 				Steps++; // CLKW
 			}
-
-
 		}
-
-//		if(!(Steps%50)){
-//			period_Speed -=1;
-//			Timer9_Config(period_Speed);
-//		}
-//		if(!(Steps%2)){
-//			period_Speed = period_Speed - periodSpeedDecrement;//(float)(1/2);
-//			Timer9_Config(period_Speed);
-//		}
 	}
 	else
 	{
 		GPIO_ToggleBits(GPIOC, GPIO_Pin_7);//PWM Generation
-		SetCenterAuto();
+		SetStartPositionAuto();
 	}
-
 }
 
 // manualny mod, ak jre premenna Auto == 0 tak funkcia otoci motor na zelanu poziciu ktoru nastavila funkcia SetAngle
@@ -175,17 +146,10 @@ void StepsManual(void){
 			Steps++; // CLKW
 		}
 	}
-
-//		if(!(Steps%50)){
-//			period_Speed -=1;
-//			Timer9_Config(period_Speed);
-//		}
-
-
 }
 
-//funkcia ktorá sa spušta v EasyStepper a slúži na nastavenie polohy medzi hraniènými polohami pre auto m´d
-void SetCenterAuto(void){
+//funkcia ktorá sa spušta v EasyStepper a slúži na nastavenie hraniènej(štartovacej)polohy nových hranièných poloh pre auto mód
+void SetStartPositionAuto(void){
 
 	if(Steps == SetSteps){
 			SetAngleFinished = 1; // Nachadza sa v krajnej polohe
@@ -197,10 +161,6 @@ void SetCenterAuto(void){
 				Steps++; // CLKW
 			}
 	}
-
-
-
-
 }
 
 // Funkcia prepocita zelany uhol na pocet krokov a nastavy smer
@@ -211,28 +171,20 @@ void SetAngle(float Angle){
 	if(SetSteps > Steps){
 		setDir(0); // CLKW
 		Timer9_Enable();
-		//if(!Auto)
-		//{
-			Timer9_Config(manual_period_speed);
-		//}
+		Timer9_Config(manual_period_speed);
 
 	}
 	if(SetSteps < Steps){
 		setDir(1); // ACLKW
 		Timer9_Enable();
-		//if(!Auto)
-		//{
-			Timer9_Config(manual_period_speed);
-		//}
+		Timer9_Config(manual_period_speed);
 	}
 	if(SetSteps == Steps){
 		if(!Auto)
 		{
 			Timer9_Disable();
 		}
-
 	}
-
 }
 
 // funkcia vracia Maximalny pocet krokov v zavislosti na zvolenom mikrokrokovani, koli vypoctu polohy
@@ -349,20 +301,14 @@ void set_recv_data()
 			start_step = recv_start_angle*MaxSteps/360;
 			end_step = recv_end_angle*MaxSteps/360;
 
-			//end_periodSpeed=krokovanieZlomok*150000/recv_speed;
-			//periodSpeedDecrement = 2*((float)(start_periodSpeed-end_periodSpeed)/(end_step-start_step));
+			TimeOfToggleDecrement_double=round(recv_speed/2);//ak je v GUI nastavené 0.2ms, prijmem èíslo 2. Musím to podeli 10 a vynásobi (1/0.2) = recv_speed/2
+			TimeOfToggleDecrement = TimeOfToggleDecrement_double;
 
-			//tu odkomentuj
-			TimeOfToggleDecrement_double=round(recv_speed/2);
-			TimeOfToggleDecrement = TimeOfToggleDecrement_double;//ak je v GUI nastavené 0.2ms, prijmem èíslo 2. Musím to podeli 10 a vynásobi (1/0.2) = recv_speed/2
-
-			SetAngleFinished = 0;//nastav stred uhla nového nového rozsahu
-			SetCenterAutoInit = 0; // znova nastav motor do inicializacnej polohy
+			SetAngleFinished = 0;//nastav krajnú polohu nového nového rozsahu
+			SetCenterAutoInit = 0; // znova nastav motor do inicializacnej(180°) polohy
 			MicroSteppingChange = 1; // aj ked sa microstepping nezmenil je potrebne znova nastavit stred, ked je tato premenna na 1 tak sa pred spustenim auto rezimu nastavi na stred noveho rozsahu
 			Init = 0;
 			SetAngle(recv_start_angle);
-
 		}
 	}
-
 }
